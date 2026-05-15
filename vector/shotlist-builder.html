@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vector Shotlist Builder | Material 7</title>
+  <link rel="stylesheet" href="/vector/styles/vector.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/vector/">
+        <img src="https://material7.com/wp-content/images/profile.jpg?v=20260514b" alt="Material 7">
+        <span>
+          <strong>Vector</strong>
+          <small>Shotlist Builder</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/vector/">Panel</a>
+        <a href="/shotlist-system/">System</a>
+        <a href="/shotlists/">Published</a>
+      </nav>
+    </header>
+
+    <section class="page-title compact">
+      <p class="eyebrow">Shotlist System V1</p>
+      <h1>Generate blue and green documents from one source.</h1>
+      <p>Edit the campaign JSON, render previews, then download HTML files for <code>/shotlists/</code>.</p>
+    </section>
+
+    <section class="builder-grid">
+      <article class="editor-panel">
+        <div class="editor-head">
+          <div>
+            <p class="eyebrow">Source Data</p>
+            <h2>Campaign JSON</h2>
+          </div>
+          <button class="button secondary" id="loadExample" type="button">Load example</button>
+        </div>
+        <textarea id="sourceData" spellcheck="false" aria-label="Campaign JSON"></textarea>
+      </article>
+
+      <aside class="actions-panel">
+        <p class="eyebrow">Outputs</p>
+        <h2>Render documents</h2>
+        <p>The blue document is the internal source of truth. The green guide is derived from the same data and should be shared with talent or clients.</p>
+
+        <div class="button-stack">
+          <button class="button" id="previewBlue" type="button">Preview blue shotlist</button>
+          <button class="button" id="downloadBlue" type="button">Download blue HTML</button>
+          <button class="button green" id="previewGreen" type="button">Preview green guide</button>
+          <button class="button green" id="downloadGreen" type="button">Download green HTML</button>
+        </div>
+
+        <div class="notice" id="status" role="status">Ready.</div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/shotlist-system/scripts/vector-shotlist-builder.js"></script>
+</body>
+</html>

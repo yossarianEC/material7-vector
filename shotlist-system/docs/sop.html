@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vector Shotlist SOP | Material 7</title>
+  <link rel="stylesheet" href="/vector/styles/vector.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/vector/">
+        <img src="https://material7.com/wp-content/images/profile.jpg?v=20260514b" alt="Material 7">
+        <span>
+          <strong>Vector</strong>
+          <small>Shotlist SOP</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/vector/shotlist-builder.html">Builder</a>
+        <a href="/shotlist-system/">System</a>
+        <a href="/shotlists/">Published</a>
+      </nav>
+    </header>
+
+    <section class="page-title compact">
+      <p class="eyebrow">Version 1.0</p>
+      <h1>Vector Shotlist System SOP</h1>
+      <p>Generate the blue internal shotlist first, then derive the green client/talent guide from the same structured campaign data.</p>
+    </section>
+
+    <section class="grid cards-2">
+      <article class="panel">
+        <p class="eyebrow">Required Input</p>
+        <h2>Minimum useful data</h2>
+        <p>Client name, shoot date, location, start time, and campaign/product/service context. Add confirmed claims, do-not-say rules, preferred CTAs, and product lists when available.</p>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Claim Safety</p>
+        <h2>No invented promises</h2>
+        <p>Do not invent free, cheapest, best-in-market, guaranteed outcomes, discounts, promotions, specs, or stock availability.</p>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Production Logic</p>
+        <h2>Shoot by block</h2>
+        <p>Capture all intros, then all benefits, then all CTAs, then b-roll. This reduces resets, talent movement, confusion, and editing friction.</p>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Publishing</p>
+        <h2>Clean studio URLs</h2>
+        <p>Save generated HTML in <code>/shotlists/</code>. The public URL is <code>https://studio.material7.com/shotlists/file-name.html</code>.</p>
+      </article>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-header">
+        <p class="eyebrow">Canonical Files</p>
+        <h2>Do not recreate from memory</h2>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td>Blue template</td>
+            <td><code>/shotlist-system/templates/blue.html</code></td>
+          </tr>
+          <tr>
+            <td>Green template</td>
+            <td><code>/shotlist-system/templates/green.html</code></td>
+          </tr>
+          <tr>
+            <td>Master CSS</td>
+            <td><code>/shotlist-system/styles/material7-shotlist.css</code></td>
+          </tr>
+          <tr>
+            <td>Source SOP markdown</td>
+            <td><code>/shotlist-system/docs/sop.md</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

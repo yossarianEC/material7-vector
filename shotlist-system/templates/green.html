@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Material 7 - Guía de grabación | {{CLIENTE}}</title>
+  <link rel="stylesheet" href="/shotlist-system/styles/material7-shotlist.css">
+</head>
+<body class="m7-green">
+  <div class="toolbar">
+    <div class="toolbar-brand">
+      <img class="toolbar-logo" src="https://material7.com/wp-content/images/profile.jpg?v=20260514b" alt="Material 7">
+      <div><strong>Material 7 - Guía de grabación</strong></div>
+    </div>
+    <button class="print-btn" onclick="handlePrint()">Imprimir / Guardar PDF</button>
+  </div>
+
+  <main class="document">
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <div class="cover-header">
+          <div class="brand-bubble"><img src="https://material7.com/wp-content/images/profile.jpg?v=20260514b" alt="Material 7"></div>
+          <div class="pill">{{CLIENTE}} - Grabación</div>
+          <div class="date-tag">{{FECHA}}</div>
+        </div>
+        <h1>Guía de grabación</h1>
+        <div class="divider"></div>
+        <div class="cards">
+          <article class="card">
+            <h3>Qué vamos a grabar</h3>
+            <p>{{RESUMEN_CLIENTE}}</p>
+          </article>
+          <div class="cards grid-2">
+            <article class="card compact meta-card">
+              <h3>Cliente</h3>
+              <p>{{CLIENTE}}</p>
+            </article>
+            <article class="card compact meta-card">
+              <h3>Locación</h3>
+              <p>{{LOCACION}}</p>
+            </article>
+            <article class="card compact meta-card">
+              <h3>Hora de inicio</h3>
+              <p>{{HORA_INICIO}}</p>
+            </article>
+          </div>
+          <article class="card important-card">
+            <h3>Importante</h3>
+            <p>Esta guía sirve para preparar las líneas antes de grabar. La persona que aparece en cámara debe leer, practicar y llegar lista para repetir cada frase con claridad.</p>
+          </article>
+        </div>
+      </div>
+      <div class="footer">01 / 06</div>
+    </section>
+
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <div class="pill">Guía de grabación</div>
+        <h1>Reglas de grabación</h1>
+        <div class="divider"></div>
+        <div class="cards grid-2">
+          <article class="card good-card">
+            <h3>Sí decir</h3>
+            <ul>
+              <li>{{SI_DECIR_01}}</li>
+              <li>{{SI_DECIR_02}}</li>
+              <li>{{SI_DECIR_03}}</li>
+              <li>{{SI_DECIR_04}}</li>
+            </ul>
+          </article>
+          <article class="card warning-card">
+            <h3>No decir</h3>
+            <ul>
+              <li>{{NO_DECIR_01}}</li>
+              <li>{{NO_DECIR_02}}</li>
+              <li>{{NO_DECIR_03}}</li>
+              <li>{{NO_DECIR_04}}</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <div class="footer">02 / 06</div>
+    </section>
+
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <div class="pill">Guía de grabación</div>
+        <h1>Bloque 1: Intros</h1>
+        <div class="divider"></div>
+        <article class="card section-tip">
+          <p><span class="pro-tip">Pro tip:</span>{{TIP_INTROS}}</p>
+        </article>
+        <div class="take-list">
+          <article class="take-card">
+            <div class="take-title">Intro 1 - {{INTRO_01_TITULO}}</div>
+            <p class="take-text">&ldquo;{{INTRO_01}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">Intro 2 - {{INTRO_02_TITULO}}</div>
+            <p class="take-text">&ldquo;{{INTRO_02}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">Intro 3 - {{INTRO_03_TITULO}}</div>
+            <p class="take-text">&ldquo;{{INTRO_03}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">Intro 4 - {{INTRO_04_TITULO}}</div>
+            <p class="take-text">&ldquo;{{INTRO_04}}&rdquo;</p>
+          </article>
+        </div>
+      </div>
+      <div class="footer">03 / 06</div>
+    </section>
+
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <div class="pill">Guía de grabación</div>
+        <h1>Bloque 2: Beneficios</h1>
+        <div class="divider"></div>
+        <article class="card section-tip">
+          <p><span class="pro-tip">Pro tip:</span>{{TIP_BENEFICIOS}}</p>
+        </article>
+        <div class="take-list">
+          <article class="take-card">
+            <div class="take-title">Beneficio 1 - {{BENEFICIO_01_TITULO}}</div>
+            <p class="take-text">&ldquo;{{BENEFICIO_01}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">Beneficio 2 - {{BENEFICIO_02_TITULO}}</div>
+            <p class="take-text">&ldquo;{{BENEFICIO_02}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">Beneficio 3 - {{BENEFICIO_03_TITULO}}</div>
+            <p class="take-text">&ldquo;{{BENEFICIO_03}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">Beneficio 4 - {{BENEFICIO_04_TITULO}}</div>
+            <p class="take-text">&ldquo;{{BENEFICIO_04}}&rdquo;</p>
+          </article>
+        </div>
+      </div>
+      <div class="footer">04 / 06</div>
+    </section>
+
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <div class="pill">Guía de grabación</div>
+        <h1>Bloque 3: CTAs</h1>
+        <div class="divider"></div>
+        <article class="card section-tip">
+          <p><span class="pro-tip">Pro tip:</span>{{TIP_CTAS}}</p>
+        </article>
+        <div class="take-list">
+          <article class="take-card">
+            <div class="take-title">CTA 1 - {{CTA_01_TITULO}}</div>
+            <p class="take-text">&ldquo;{{CTA_01}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">CTA 2 - {{CTA_02_TITULO}}</div>
+            <p class="take-text">&ldquo;{{CTA_02}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">CTA 3 - {{CTA_03_TITULO}}</div>
+            <p class="take-text">&ldquo;{{CTA_03}}&rdquo;</p>
+          </article>
+          <article class="take-card">
+            <div class="take-title">CTA 4 - {{CTA_04_TITULO}}</div>
+            <p class="take-text">&ldquo;{{CTA_04}}&rdquo;</p>
+          </article>
+        </div>
+      </div>
+      <div class="footer">05 / 06</div>
+    </section>
+
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <div class="pill">Guía de grabación</div>
+        <h1>Antes de grabar</h1>
+        <div class="divider"></div>
+        <div class="cards">
+          <article class="card important-card">
+            <h3>Responsabilidad</h3>
+            <p>Estas líneas deben revisarse y practicarse antes de grabar. Si una línea no se entiende, debe preguntarse antes de iniciar la toma. Evite improvisar datos, precios, garantías o promesas que no estén confirmadas.</p>
+          </article>
+          <article class="card">
+            <h3>Cómo verse mejor en cámara</h3>
+            <ul>
+              <li>Hable un poco más lento de lo normal.</li>
+              <li>Diga la frase completa aunque se equivoque; luego repita desde el inicio.</li>
+              <li>Mire a cámara para intros y CTAs.</li>
+              <li>No sobreactúe. Suene claro, tranquilo y profesional.</li>
+              <li>Deje una pausa breve antes y después de cada línea.</li>
+              <li>Repita cada frase al menos 2 veces.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <div class="footer">06 / 06</div>
+    </section>
+  </main>
+
+  <script>
+    function handlePrint() {
+      var isMobile = window.matchMedia('(max-width: 760px), (pointer: coarse)').matches;
+      if (isMobile) {
+        alert('En móvil, si no aparece el cuadro de impresión, use el menú del navegador: Compartir / Imprimir / Guardar como PDF.');
+      }
+      setTimeout(function () {
+        try {
+          window.print();
+        } catch (e) {}
+      }, 80);
+    }
+  </script>
+</body>
+</html>
