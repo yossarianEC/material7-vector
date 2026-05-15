@@ -191,7 +191,7 @@ Simple prep checklist before a shoot.
 1. Open the local repository folder:
 
 ```txt
-D:\Github\material7-studio
+D:\Codex\material7-studio
 ```
 
 2. Open the `shotlists` folder.
@@ -201,7 +201,7 @@ D:\Github\material7-studio
 Example:
 
 ```txt
-D:\Github\material7-studio\shotlists\aura-clean-client-guide-05-14-2026.html
+D:\Codex\material7-studio\shotlists\aura-clean-client-guide-05-14-2026.html
 ```
 
 4. Open GitHub Desktop.

@@ -1,0 +1,98 @@
+{
+  "client": {
+    "name": "SP Importadora",
+    "project": "Yihua Tools"
+  },
+  "shoot": {
+    "date": "05-14-2026",
+    "location": "Local Unicornio",
+    "startTime": "Hora por definir"
+  },
+  "summary": {
+    "internal": "Campaña para presentar herramientas Yihua para reparación electrónica: estaciones de calor, estaciones de cautín, fuentes de poder, puntas, cautines y accesorios. El enfoque es confianza, variedad, garantía de un año, presencia nacional y consulta directa.",
+    "client": "Vamos a grabar una guía simple para presentar herramientas Yihua para reparación electrónica: estaciones de calor, estaciones de cautín, fuentes de poder, puntas y accesorios. La prioridad es que las frases suenen claras, confiables y fáciles de entender."
+  },
+  "visualPriority": "Mostrar estaciones de calor, estaciones de cautín, fuentes de poder, puntas de cautín, accesorios y contexto real de tienda. Priorizar manos usando el producto, detalles de modelo y close-ups de marca.",
+  "doSay": [
+    "Distribuidores de herramientas Yihua.",
+    "Herramientas originales Yihua.",
+    "Garantía por un año.",
+    "Visítenos en uno de nuestros 6 locales a nivel nacional."
+  ],
+  "dontSay": [
+    "Gratis.",
+    "Barato / el más barato.",
+    "Mejor del mercado.",
+    "Descuentos o promociones si no están confirmados."
+  ],
+  "intros": [
+    {
+      "title": "Directa",
+      "line": "¿Busca herramientas Yihua para reparación electrónica o su taller?"
+    },
+    {
+      "title": "Disponibilidad",
+      "line": "En SP Importadora encuentra herramientas Yihua para soldadura, calor y laboratorio técnico."
+    },
+    {
+      "title": "Problema",
+      "line": "Cuando trabaja con electrónica, necesita herramientas confiables y el modelo correcto."
+    },
+    {
+      "title": "Tienda",
+      "line": "Visítenos en Local Unicornio y consulte por nuestras herramientas Yihua."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Confianza",
+      "line": "Trabajamos con herramientas originales Yihua y garantía por un año."
+    },
+    {
+      "title": "Variedad",
+      "line": "Tenemos estaciones de calor, estaciones de cautín, fuentes de poder y puntas de cautín."
+    },
+    {
+      "title": "Atención",
+      "line": "Le ayudamos a revisar opciones según el tipo de trabajo que necesita realizar."
+    },
+    {
+      "title": "Presencia nacional",
+      "line": "También puede visitarnos en uno de nuestros 6 locales a nivel nacional."
+    }
+  ],
+  "ctas": [
+    {
+      "title": "Contacto",
+      "line": "Contáctenos ahora para más información."
+    },
+    {
+      "title": "Visita",
+      "line": "Visítenos en Local Unicornio y conozca las herramientas Yihua disponibles."
+    },
+    {
+      "title": "Consulta",
+      "line": "Escríbanos y consulte por el modelo que necesita."
+    },
+    {
+      "title": "Nacional",
+      "line": "Visítenos en cualquiera de nuestros 6 locales a nivel nacional."
+    }
+  ],
+  "broll": {
+    "product": "Estaciones de calor y estaciones de cautín sobre mesa de trabajo.",
+    "process": "Fuentes de poder, puntas de cautín, estaño y accesorios en close-up.",
+    "detail": "Manos mostrando controles, puntas, manerales, pantallas y detalles de modelo.",
+    "context": "Tomas de producto en contexto de reparación electrónica o laboratorio técnico.",
+    "closing": "Plano de Local Unicornio, mostrador o atención como cierre."
+  },
+  "quote": {
+    "text": "Cinema is a matter of what's in the frame and what's out.",
+    "source": "Martin Scorsese"
+  },
+  "tips": {
+    "intros": "Hable un poco más lento de lo normal. La cámara premia claridad, no velocidad.",
+    "benefits": "Diga la frase completa, aunque parezca simple.",
+    "ctas": "Mire a cámara al iniciar y al cerrar la frase."
+  }
+}

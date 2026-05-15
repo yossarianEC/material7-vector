@@ -2,37 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Material 7 Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      background: #002037;
-      color: white;
-    }
-    main {
-      max-width: 720px;
-      padding: 48px 24px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-    p {
-      font-size: 20px;
-      opacity: 0.85;
-    }
-  </style>
+  <title>Vector | Material 7</title>
+  <link rel="stylesheet" href="/vector/styles/vector.css">
 </head>
 <body>
-  <main>
-    <h1>Material 7 Studio</h1>
-    <p>Studio is live.</p>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <img src="https://material7.com/wp-content/images/profile.jpg?v=20260514b" alt="Material 7">
+        <span>
+          <strong>Vector</strong>
+          <small>Material 7 client operations</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/vector/">Panel</a>
+        <a href="/vector/shotlist-builder.html">Shotlist Builder</a>
+        <a href="/shotlists/">Published</a>
+      </nav>
+    </header>
+
+    <section class="page-title">
+      <p class="eyebrow">Material 7 Engineering</p>
+      <h1>Vector is the master panel for client-facing systems.</h1>
+      <p>Studio is the publishing surface. Vector is where the reusable operating system lives: templates, generators, SOPs, and clean links for clients.</p>
+    </section>
+
+    <section class="grid cards-3" aria-label="Vector modules">
+      <a class="module-card" href="/vector/shotlist-builder.html">
+        <span class="status ready">V1 ready</span>
+        <h2>Shotlist Builder</h2>
+        <p>Generate the blue internal shotlist first, then derive the green client guide from the same structured data.</p>
+      </a>
+      <a class="module-card" href="/shotlist-system/">
+        <span class="status system">System</span>
+        <h2>Template System</h2>
+        <p>Canonical blue and green templates now share one master Material 7 shotlist CSS file.</p>
+      </a>
+      <a class="module-card" href="/shotlists/">
+        <span class="status live">Live</span>
+        <h2>Published Links</h2>
+        <p>Client-safe HTML documents served through studio.material7.com.</p>
+      </a>
+    </section>
+
+    <section class="panel">
+      <div>
+        <p class="eyebrow">Current Standard</p>
+        <h2>One source of truth, two outputs.</h2>
+      </div>
+      <div class="workflow">
+        <div><strong>1</strong><span>Capture campaign data</span></div>
+        <div><strong>2</strong><span>Render blue internal control doc</span></div>
+        <div><strong>3</strong><span>Render green client/talent guide</span></div>
+        <div><strong>4</strong><span>Publish clean URLs in /shotlists</span></div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
