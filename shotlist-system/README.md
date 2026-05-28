@@ -1,8 +1,26 @@
-# Vector Shotlist System
+# Legacy Shotlist System — Manual Builder
 
-Vector is the Material 7 master panel. This folder contains the reusable shotlist system that powers client-facing documents published through `studio.material7.com`.
+This folder is the older/manual V1 shotlist builder.
 
-## V1 Structure
+It is kept for reference and for any existing public/client-facing files that still depend on the old blue/green template flow.
+
+## Canonical system
+
+New AGNC shotlist work should use:
+
+```txt
+/Vector - Shotlist system/
+```
+
+That folder contains the current agent-led architecture:
+
+```txt
+AI interprets.
+Code renders.
+GitHub publishes.
+```
+
+## Legacy V1 structure
 
 ```txt
 shotlist-system/
@@ -19,13 +37,13 @@ shotlist-system/
     green.html
 ```
 
-## Core Rule
+## Legacy rule
 
 Generate the blue internal shotlist first. Generate the green client/talent guide from the same structured data.
 
-## Publishing
+## Legacy publishing
 
-Generated HTML files belong in:
+Generated HTML files historically belong in:
 
 ```txt
 /shotlists/
@@ -37,7 +55,9 @@ Public URL pattern:
 https://studio.material7.com/shotlists/file-name.html
 ```
 
-## Builder
+Do not delete `/shotlists/` while active client HTML still lives there.
+
+## Legacy builder
 
 Open:
 
@@ -46,3 +66,7 @@ Open:
 ```
 
 Load the example JSON, edit campaign data, preview the blue and green documents, then download the generated HTML files.
+
+## Cleanup note
+
+This folder should not be expanded unless intentionally maintaining legacy output. Prefer improving the canonical Vector AGNC system instead.
