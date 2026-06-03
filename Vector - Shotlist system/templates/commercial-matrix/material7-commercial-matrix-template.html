@@ -222,6 +222,12 @@
       gap: 16px;
     }
 
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
     .card {
       border: 2px solid var(--line);
       border-radius: var(--radius-lg);
@@ -250,6 +256,15 @@
       font-weight: 800;
       margin: 0;
       line-height: 1.25;
+    }
+
+    .audience-card {
+      border-color: var(--blue-line);
+      background: linear-gradient(180deg, #ffffff 0%, var(--soft-blue) 100%);
+    }
+
+    .audience-card h3 {
+      color: var(--cyan-dark);
     }
 
     .instructions-card {
@@ -457,6 +472,7 @@
       }
 
       .grid-3,
+      .grid-2,
       .closing-grid {
         grid-template-columns: 1fr;
       }
@@ -549,6 +565,18 @@
             <article class="card compact meta-card">
               <h3>Fecha</h3>
               <p>{{FECHA}}</p>
+            </article>
+          </div>
+
+          <div class="grid-2">
+            <article class="card compact meta-card audience-card">
+              <h3>Audiencia</h3>
+              <p>{{AUDIENCIA}}</p>
+            </article>
+
+            <article class="card compact meta-card audience-card">
+              <h3>Edad sugerida</h3>
+              <p>{{EDAD_SUGERIDA}}</p>
             </article>
           </div>
 
