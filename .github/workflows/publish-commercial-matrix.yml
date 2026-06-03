@@ -1,0 +1,47 @@
+name: Publish Commercial Matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      approved_matrix_json:
+        description: "Approved commercial matrix JSON"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Render commercial matrix HTML
+        id: render
+        env:
+          APPROVED_MATRIX_JSON: ${{ inputs.approved_matrix_json }}
+        run: node "Vector - Shotlist system/scripts/publish-commercial-matrix.js"
+
+      - name: Commit generated commercial matrix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "${{ steps.render.outputs.file_path }}"
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Publish commercial matrix: ${{ steps.render.outputs.file_path }}"
+          git push
+
+      - name: Summary
+        run: |
+          echo "Status: ${{ steps.render.outputs.status }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "File: ${{ steps.render.outputs.file_path }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Message: ${{ steps.render.outputs.message }}" >> "$GITHUB_STEP_SUMMARY"
