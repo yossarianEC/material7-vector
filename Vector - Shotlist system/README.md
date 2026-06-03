@@ -1,8 +1,8 @@
-# Vector — Shotlist System
+# Vector — Commercial Matrix System
 
-Vector Shotlist System is the canonical agent-led production workflow for Material 7 AGNC internal shotlists.
+Vector Commercial Matrix System is the canonical agent-led commercial copy workflow for Material 7.
 
-The user should never feel like they are filling a form. The user talks to the agent. The agent interprets, improves, challenges, and structures the data. Code then renders the approved data into the fixed AGNC template and prepares it for GitHub publishing.
+The user should never feel like they are filling a form. The user talks to the agent. The agent interprets, guides, structures, and prepares a small approved commercial matrix. Code then renders the approved data into the fixed Material 7 commercial matrix template and prepares it for GitHub publishing.
 
 ## Core principle
 
@@ -12,71 +12,87 @@ GitHub publishes.
 
 ## Canonical status
 
-This folder is the source of truth for the current Vector AGNC shotlist workflow.
+This folder is now the source of truth for the current Vector Commercial Matrix workflow.
 
-Legacy/manual builder files may still exist elsewhere in the repository for reference or backward compatibility, but new AGNC work should be designed from this folder unless a specific legacy file is being maintained.
+The old AGNC/full shotlist workflow has been removed from this folder. Public generated files may still exist elsewhere in the repository until they can be reproduced safely by the new system.
 
 ## Current flow
 
-1. **Vector — Shotlist Master** runs the conversation.
-2. The Master asks smart production questions and improves weak answers.
-3. The Master converts the approved conversation into AGNC JSON.
-4. The hidden AGNC render tool fills the canonical HTML template.
-5. The generated HTML is saved only after explicit user confirmation.
+1. **Vector — Commercial Matrix Publisher** runs the conversation.
+2. The agent asks one natural question at a time.
+3. The agent collects only the required commercial context.
+4. The agent creates an approved matrix with exactly:
+   - 3 intros
+   - 3 benefits
+   - 3 CTAs
+5. The approved matrix becomes structured JSON.
+6. The deterministic renderer fills the canonical Material 7 commercial matrix template.
+7. The generated HTML is published only after explicit user confirmation.
+
+## Required renderer fields
+
+```text
+CLIENTE
+PROYECTO
+FECHA
+RESUMEN_CORTO
+INTRO_01
+INTRO_02
+INTRO_03
+BENEFICIO_01
+BENEFICIO_02
+BENEFICIO_03
+CTA_01
+CTA_02
+CTA_03
+```
 
 ## Folder map
 
 ```text
 /Vector - Shotlist system/
-  /agents/
-    vector-shotlist-master-instructions.md
+  /templates/
+    /commercial-matrix/
+      material7-commercial-matrix-template.html
 
-  /assets/
-    /shotlists/
-      material7-shotlist-agnc.css
-      material7-shotlist-print.js
+  /renderers/
+    vector-commercial-matrix-renderer.js
+
+  /schemas/
+    commercial-matrix.schema.json
+
+  /tools/
+    vector-commercial-matrix-render-tool.md
 
   /data/
     /test/
-      agnc-detail-sport-ppf-ferrari-812.json
-
-  /quote-pools/
-    agnc-production-quotes.json
-
-  /renderers/
-    vector-shotlist-agnc-renderer.js
-
-  /schemas/
-    agnc-shotlist.schema.json
-
-  /templates/
-    /shotlists/
-      material7-shotlist-agnc-template.html
-
-  /tools/
-    vector-shotlist-agnc-render-tool.md
+      commercial matrix test JSON may go here
 
   /shotlists/
-    generated AGNC source-output shotlists may go here when intentionally kept with the system
+    generated source-output commercial matrix files may go here when intentionally kept with the system
 ```
 
 ## Role separation
 
-### Vector — Shotlist Master
+### Vector — Commercial Matrix Publisher
 
-Conversational. Strategic. User-facing.
+Conversational. User-facing. Guided.
 
-It asks questions, recommends better answers, turns messy production context into clean approved AGNC data, selects a safe internal quote from the AGNC quote pool, and asks for approval before render/publish.
+It asks questions, suggests defaults, prepares the commercial matrix, checks for approval, and asks again before publishing.
 
-### Vector — Shotlist AGNC Render Tool
+It does not manually generate final HTML.
+
+### Vector — Commercial Matrix Render Tool
 
 Hidden/internal. Deterministic. Not a chat experience.
 
-It takes approved AGNC JSON, validates the data, fills the canonical template, refuses risky positive claims, and returns complete HTML.
+It takes approved commercial matrix JSON, validates the data, fills the canonical template, and returns complete HTML.
+
+It does not write strategy, rewrite copy, ask questions, create design, or publish by itself.
 
 ### GitHub Studio
 
-Stores the system source of truth: templates, CSS, JS, schemas, renderers, quote pools, tool specs, and generated shotlists.
+Stores the system source of truth: templates, schemas, renderers, tool specs, test data, and generated outputs.
 
 ## Publishing policy
 
@@ -85,13 +101,13 @@ Do not publish without explicit confirmation.
 Preferred clean public output path:
 
 ```text
-/shotlists/agnc/[client-slug]/[project-slug].html
+/shotlists/[client-slug]-[project-slug].html
 ```
 
-Preferred source/system output path when keeping generated AGNC output inside this folder:
+Preferred source/system output path when keeping generated output inside this folder:
 
 ```text
-/Vector - Shotlist system/shotlists/[client-slug]/[project-slug]-agnc.html
+/Vector - Shotlist system/shotlists/[client-slug]/[project-slug]-commercial-matrix.html
 ```
 
 Avoid publishing final public links from paths with spaces when a cleaner public route is available.
@@ -99,9 +115,13 @@ Avoid publishing final public links from paths with spaces when a cleaner public
 ## Rules
 
 - Do not make the user fill JSON manually. JSON is the handoff format, not the user interface.
-- Do not generate HTML manually in the Master agent.
+- Do not generate HTML manually in the user-facing agent.
+- Do not store final HTML inside the agent instructions.
+- Do not use TinyCommand Transformer text boxes as the long-term source of truth for templates.
 - Do not publish without explicit user confirmation.
-- Do not overwrite existing generated shotlists unless the user asks explicitly.
-- Do not use external/famous quotes unless they are intentionally approved for the system.
-- Prefer Material 7 original lines from `/quote-pools/agnc-production-quotes.json`.
+- Do not overwrite existing generated files unless the user asks explicitly.
+- Keep the system lightweight: 3 intros, 3 benefits, 3 CTAs.
+- Do not create B-roll, shot lists, schedules, locations, start times, or production notes in this workflow.
 - The renderer must remain deterministic: no strategy, no copywriting, no layout invention.
+- The GitHub template is the canonical design source.
+- The agent is the interviewer/operator, not the renderer.
