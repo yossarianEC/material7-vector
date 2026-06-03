@@ -16,6 +16,8 @@ const VECTOR_COMMERCIAL_MATRIX_REQUIRED_FIELDS = [
   'PROYECTO',
   'FECHA',
   'RESUMEN_CORTO',
+  'AUDIENCIA',
+  'EDAD_SUGERIDA',
   'INTRO_01',
   'INTRO_02',
   'INTRO_03',
@@ -89,6 +91,8 @@ function renderCommercialMatrix(template, data) {
       startsWithDoctype: startsCorrectly,
       endsWithHtml: endsCorrectly,
       hasResumenCorto: html.includes('class="resumen-corto"'),
+      hasAudience: html.includes('Audiencia'),
+      hasAge: html.includes('EDAD_SUGERIDA') === false,
       hasToolbar: html.includes('class="toolbar"'),
       hasPrintButton: html.includes('window.print()'),
       hasMaterial7Logo: html.includes('https://material7.com/studio/profile.jpg')
