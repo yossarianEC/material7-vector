@@ -21,13 +21,15 @@ The old AGNC/full shotlist workflow has been removed from this folder. Public ge
 1. **Vector — Commercial Matrix Publisher** runs the conversation.
 2. The agent asks one natural question at a time.
 3. The agent collects only the required commercial context.
-4. The agent creates an approved matrix with exactly:
+4. The agent asks what tone the commercial copy should use for the final customer: `usted` or `tú`.
+5. The agent collects audience and suggested age.
+6. The agent creates an approved matrix with exactly:
    - 3 intros
    - 3 benefits
    - 3 CTAs
-5. The approved matrix becomes structured JSON.
-6. The deterministic renderer fills the canonical Material 7 commercial matrix template.
-7. The generated HTML is published only after explicit user confirmation.
+7. The approved matrix becomes structured JSON.
+8. The deterministic renderer fills the canonical Material 7 commercial matrix template.
+9. The generated HTML is published only after explicit user confirmation.
 
 ## Required renderer fields
 
@@ -36,6 +38,8 @@ CLIENTE
 PROYECTO
 FECHA
 RESUMEN_CORTO
+AUDIENCIA
+EDAD_SUGERIDA
 INTRO_01
 INTRO_02
 INTRO_03
@@ -46,6 +50,8 @@ CTA_01
 CTA_02
 CTA_03
 ```
+
+Note: commercial copy tone (`usted` or `tú`) is an internal copywriting setting used by the agent to write intros, benefits, and CTAs. It is not a renderer field and should not appear in the HTML metadata.
 
 ## Folder map
 
