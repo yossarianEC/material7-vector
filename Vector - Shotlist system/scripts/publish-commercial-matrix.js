@@ -16,13 +16,120 @@ const TEMPLATE_PATH = path.join(
 
 const OUTPUT_ROOT = path.join(process.cwd(), "shotlists");
 
+// TinyCommand can occasionally pass Spanish copy with accent marks stripped before it reaches GitHub.
+// Slugs may stay ASCII, but visible commercial copy must keep Spanish accents whenever we can safely restore them.
+const COMMON_SPANISH_ACCENT_REPAIRS = {
+  aereo: "aéreo",
+  alicuota: "alícuota",
+  alicuotas: "alícuotas",
+  anos: "años",
+  ano: "año",
+  arbol: "árbol",
+  area: "área",
+  areas: "áreas",
+  atencion: "atención",
+  automatizacion: "automatización",
+  basico: "básico",
+  basica: "básica",
+  boton: "botón",
+  campana: "campaña",
+  campanas: "campañas",
+  camara: "cámara",
+  catalogo: "catálogo",
+  catalogos: "catálogos",
+  codigo: "código",
+  codigos: "códigos",
+  comodin: "comodín",
+  comunicacion: "comunicación",
+  confirmacion: "confirmación",
+  cotizacion: "cotización",
+  cotizaciones: "cotizaciones",
+  credito: "crédito",
+  descripcion: "descripción",
+  dia: "día",
+  dias: "días",
+  diseno: "diseño",
+  edicion: "edición",
+  electrico: "eléctrico",
+  electronica: "electrónica",
+  escribenos: "escríbenos",
+  guia: "guía",
+  guias: "guías",
+  instalacion: "instalación",
+  informacion: "información",
+  inversion: "inversión",
+  mas: "más",
+  mecanico: "mecánico",
+  movil: "móvil",
+  opcion: "opción",
+  opciones: "opciones",
+  pagina: "página",
+  paginas: "páginas",
+  pais: "país",
+  practico: "práctico",
+  practica: "práctica",
+  produccion: "producción",
+  promocion: "promoción",
+  publico: "público",
+  publica: "pública",
+  rapido: "rápido",
+  rapida: "rápida",
+  revision: "revisión",
+  solucion: "solución",
+  telefono: "teléfono",
+  tambien: "también",
+  tecnico: "técnico",
+  tecnica: "técnica",
+  vehiculo: "vehículo",
+  vehiculos: "vehículos",
+  version: "versión",
+  video: "video"
+};
+
 function fail(message) {
   console.error(message);
   process.exit(1);
 }
 
 function normalizeText(value) {
-  return String(value ?? "").trim();
+  return String(value ?? "").normalize("NFC").trim();
+}
+
+function applyOriginalCase(source, replacement) {
+  if (source.toUpperCase() === source) {
+    return replacement.toUpperCase();
+  }
+
+  if (source[0] && source[0].toUpperCase() === source[0]) {
+    return replacement.charAt(0).toUpperCase() + replacement.slice(1);
+  }
+
+  return replacement;
+}
+
+function restoreCommonSpanishAccents(value) {
+  let text = normalizeText(value);
+
+  for (const [plainWord, accentedWord] of Object.entries(COMMON_SPANISH_ACCENT_REPAIRS)) {
+    const pattern = new RegExp(`\\b${plainWord}\\b`, "gi");
+    text = text.replace(pattern, (match) => applyOriginalCase(match, accentedWord));
+  }
+
+  return text;
+}
+
+function repairMatrixText(data) {
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    return data;
+  }
+
+  const repaired = {};
+
+  for (const [key, value] of Object.entries(data)) {
+    repaired[key] = typeof value === "string" ? restoreCommonSpanishAccents(value) : value;
+  }
+
+  return repaired;
 }
 
 function slugify(value) {
@@ -76,7 +183,7 @@ function setGithubOutput(name, value) {
 }
 
 const approvedMatrixJson = process.env.APPROVED_MATRIX_JSON;
-const matrix = parseMatrixJson(approvedMatrixJson);
+const matrix = repairMatrixText(parseMatrixJson(approvedMatrixJson));
 
 const missingFields = getMissingRequiredFields(matrix);
 
