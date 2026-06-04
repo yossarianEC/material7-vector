@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material 7 - Gu&iacute;a de grabaci&oacute;n comercial | Cenit</title>
+  <style>
+    :root {
+      --page-bg:#e5e5e5; --paper:#f7f8fb; --ink:#141824; --muted:#5f687c; --line:#d5dceb; --card:#ffffff;
+      --green-deep:#073b2a; --green-dark:#0e8a46; --green:#18b563; --soft-green:#f4fbf7; --green-line:rgba(14,138,70,.22);
+      --blue-deep:#001f3f; --cyan-dark:#087ba0; --soft-blue:#eef3ff; --blue-line:rgba(8,123,160,.22);
+      --purple:#5136ff; --purple-soft:rgba(81,54,255,.08); --purple-line:rgba(81,54,255,.22);
+      --ember-dark:#b8320b; --ember-soft:#fff1df; --radius-lg:24px; --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html,body{margin:0;padding:0;background:var(--page-bg);color:var(--ink);font-family:var(--font)}
+    body{min-height:100vh}
+    .toolbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:rgba(2,5,8,.94);color:white;box-shadow:0 10px 24px rgba(0,0,0,.22)}
+    .toolbar-brand{display:flex;align-items:center;gap:12px;min-width:0}.toolbar-logo{width:34px;height:34px;border-radius:8px;object-fit:cover;display:block;flex-shrink:0}.toolbar strong{display:block;font-size:15px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .print-btn{border:0;border-radius:999px;padding:10px 16px;background:linear-gradient(135deg,var(--green-deep),var(--green-dark) 58%,var(--green));color:white;font-weight:800;cursor:pointer;font-size:13px;white-space:nowrap;box-shadow:0 10px 24px rgba(14,138,70,.26)}
+    .document{display:flex;flex-direction:column;align-items:center;padding:32px 16px 56px}.page{position:relative;width:100%;max-width:980px;background:var(--paper);overflow:hidden;box-shadow:0 20px 50px rgba(20,24,36,.08)}.top-bar{height:14px;background:linear-gradient(90deg,var(--green-deep),var(--green-dark) 58%,var(--green))}.page-inner{padding:56px 56px 60px}
+    .cover-header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:56px;flex-wrap:wrap}.brand-bubble{width:60px;height:60px;border-radius:999px;overflow:hidden;flex-shrink:0;background:var(--green-dark)}.brand-bubble img{width:100%;height:100%;object-fit:cover;display:block}.date-tag{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:2px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted);font-size:16px;font-weight:850;white-space:nowrap}
+    h1{margin:0;color:var(--ink);font-size:48px;line-height:1.08;font-weight:900;letter-spacing:-.05em}h2{margin:0;color:var(--ink);font-size:28px;line-height:1.12;font-weight:900;letter-spacing:-.03em}h3{margin:0 0 8px;color:var(--ink);font-size:20px;line-height:1.2;font-weight:850}.resumen-corto{margin:16px 0 0;max-width:760px;color:var(--muted);font-size:20px;line-height:1.45;font-weight:600}.divider{height:2px;background:var(--line);margin:36px 0 40px}
+    .cards{display:grid;grid-template-columns:1fr;gap:20px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{border:2px solid var(--line);border-radius:var(--radius-lg);background:var(--card);padding:24px 28px}.card.compact{padding:18px 20px}.meta-card{border-color:var(--green-line)}.meta-card h3{color:var(--green-dark);font-size:14px;letter-spacing:.08em;text-transform:uppercase}.meta-card p{color:var(--ink);font-size:18px;font-weight:800;margin:0;line-height:1.25}.audience-card{border-color:var(--blue-line);background:linear-gradient(180deg,#fff,var(--soft-blue))}.audience-card h3{color:var(--cyan-dark)}
+    .instructions-card{border-color:var(--blue-line);background:linear-gradient(180deg,#fff,var(--soft-blue));border-left:10px solid var(--cyan-dark)}.instructions-card h3{color:var(--cyan-dark)}.instructions-card p{color:var(--ink);font-weight:650;font-size:18px;line-height:1.35;margin:0}.section{margin-top:28px}.section-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}.section-kicker{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:0 14px;border-radius:999px;color:white;font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}.section-kicker.green{background:linear-gradient(135deg,var(--green-deep),var(--green-dark))}.section-kicker.blue{background:linear-gradient(135deg,var(--blue-deep),var(--cyan-dark))}.section-kicker.purple{background:linear-gradient(135deg,#25137a,var(--purple))}
+    .take-list{display:grid;gap:14px}.take-card{position:relative;border:2px solid var(--line);border-radius:var(--radius-lg);background:var(--card);padding:22px 24px 22px 76px;overflow:hidden}.take-card::before{content:attr(data-number);position:absolute;left:22px;top:50%;transform:translateY(-50%);width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--soft-green);color:var(--green-dark);font-size:15px;font-weight:950;border:2px solid var(--green-line)}.take-card.blue::before{background:var(--soft-blue);color:var(--cyan-dark);border-color:var(--blue-line)}.take-card.purple::before{background:var(--purple-soft);color:var(--purple);border-color:var(--purple-line)}.take-text{color:var(--ink);font-size:22px;line-height:1.3;font-weight:650;margin:0}
+    .closing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.closing-card{border:2px solid var(--line);border-radius:var(--radius-lg);background:var(--card);padding:22px 26px}.closing-card h3{font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}.closing-card p{color:var(--muted);font-size:17px;line-height:1.4;margin:0;font-weight:600}.closing-card.video{border-color:var(--blue-line);background:linear-gradient(180deg,#fff,var(--soft-blue))}.closing-card.video h3{color:var(--cyan-dark)}.closing-card.audio{border-color:rgba(232,66,10,.34);background:var(--ember-soft)}.closing-card.audio h3{color:var(--ember-dark)}.footer{margin-top:44px;color:var(--muted);font-size:16px;font-weight:800;letter-spacing:.02em;text-align:right}
+    @media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.toolbar{padding:12px 14px}.toolbar strong{max-width:190px}.print-btn{padding:9px 13px;font-size:12px}.document{padding:18px 10px 42px}.page-inner{padding:40px 24px 44px}.cover-header{margin-bottom:42px}h1{font-size:38px}h2{font-size:24px}.resumen-corto{font-size:18px}.grid-4,.closing-grid{grid-template-columns:1fr}.take-text{font-size:19px}.section-header{align-items:flex-start;flex-direction:column}}
+    @media print{@page{size:auto;margin:0}html,body{background:white}.toolbar{display:none}.document{display:block;padding:0}.page{width:100%;max-width:none;box-shadow:none}.page-inner{padding:52px 56px}}
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="toolbar-brand">
+      <img class="toolbar-logo" src="https://material7.com/studio/profile.jpg" alt="Material 7" />
+      <div><strong>Material 7 - Gu&iacute;a de grabaci&oacute;n comercial</strong></div>
+    </div>
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+  <main class="document">
+    <section class="page">
+      <div class="top-bar"></div>
+      <div class="page-inner">
+        <header class="cover-header">
+          <div class="brand-bubble"><img src="https://material7.com/studio/profile.jpg" alt="Material 7" /></div>
+          <div class="date-tag">2026-06-03</div>
+        </header>
+        <h1>Gu&iacute;a de grabaci&oacute;n comercial</h1>
+        <p class="resumen-corto">Gua comercial para explicar el valor de instalar PPF de forma clara y directa.</p>
+        <div class="divider"></div>
+        <div class="cards">
+          <div class="grid-4">
+            <article class="card compact meta-card"><h3>Cliente</h3><p>Cenit</p></article>
+            <article class="card compact meta-card"><h3>Proyecto</h3><p>Campaa instalacin de PPF</p></article>
+            <article class="card compact meta-card"><h3>Fecha</h3><p>2026-06-03</p></article>
+            <article class="card compact meta-card audience-card"><h3>Audiencia</h3><p>Personas interesadas en proteger la pintura de su vehculo. · 25-55</p></article>
+          </div>
+          <article class="card instructions-card"><h3>Instrucciones de grabaci&oacute;n</h3><p>Hable despacio y con pausa. Deje un segundo de silencio antes y despu&eacute;s de cada frase para facilitar el corte en edici&oacute;n.</p></article>
+        </div>
+        <section class="section">
+          <div class="section-header"><h2>Bloque 1: Intros</h2><span class="section-kicker green">Aperturas</span></div>
+          <div class="take-list">
+            <article class="take-card" data-number="1"><p class="take-text">&quot;Protege la pintura de tu vehculo antes de que el dao aparezca.&quot;</p></article>
+            <article class="take-card" data-number="2"><p class="take-text">&quot;El PPF ayuda a conservar mejor la apariencia de tu auto.&quot;</p></article>
+            <article class="take-card" data-number="3"><p class="take-text">&quot;Si quieres cuidar tu vehculo por ms tiempo, el PPF es una buena opcin.&quot;</p></article>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-header"><h2>Bloque 2: Beneficios</h2><span class="section-kicker blue">Argumentos</span></div>
+          <div class="take-list">
+            <article class="take-card blue" data-number="1"><p class="take-text">&quot;Ayuda a proteger contra rayones leves, desgaste diario y marcas del camino.&quot;</p></article>
+            <article class="take-card blue" data-number="2"><p class="take-text">&quot;Mantiene una apariencia ms limpia y cuidada por ms tiempo.&quot;</p></article>
+            <article class="take-card blue" data-number="3"><p class="take-text">&quot;Es una solucin prctica para quienes quieren proteger su inversin.&quot;</p></article>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-header"><h2>Bloque 3: CTAs</h2><span class="section-kicker purple">Cierres</span></div>
+          <div class="take-list">
+            <article class="take-card purple" data-number="1"><p class="take-text">&quot;Escrbenos y consulta por la instalacin de PPF.&quot;</p></article>
+            <article class="take-card purple" data-number="2"><p class="take-text">&quot;Pide una cotizacin para tu vehculo.&quot;</p></article>
+            <article class="take-card purple" data-number="3"><p class="take-text">&quot;Agenda una revisin y te orientamos.&quot;</p></article>
+          </div>
+        </section>
+        <div class="closing-grid">
+          <article class="closing-card video"><h3>Si grabamos juntos</h3><p>Le recomendamos evitar ropa blanca para reducir reflejos. Cuide su imagen, pero use algo c&oacute;modo y natural para grabar.</p></article>
+          <article class="closing-card audio"><h3>Si graba audio</h3><p>Si va a enviar audio, procure que sea de la mejor calidad posible. Recomendamos usar micr&oacute;fono inal&aacute;mbrico o micr&oacute;fono de escritorio con filtro antipop, si cuenta con uno.</p></article>
+        </div>
+        <div class="footer">Material 7 &middot; Vector Shotlist System</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
