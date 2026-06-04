@@ -3,8 +3,64 @@ name: Publish Commercial Matrix
 on:
   workflow_dispatch:
     inputs:
-      approved_matrix_json:
-        description: "Approved commercial matrix JSON"
+      CLIENTE:
+        description: "Client or brand name"
+        required: true
+        type: string
+      PROYECTO:
+        description: "Project or campaign name"
+        required: true
+        type: string
+      FECHA:
+        description: "Matrix date in YYYY-MM-DD format"
+        required: true
+        type: string
+      RESUMEN_CORTO:
+        description: "Short commercial matrix summary"
+        required: true
+        type: string
+      AUDIENCIA:
+        description: "Primary target audience"
+        required: true
+        type: string
+      EDAD_SUGERIDA:
+        description: "Suggested age range"
+        required: true
+        type: string
+      INTRO_01:
+        description: "First approved intro line"
+        required: true
+        type: string
+      INTRO_02:
+        description: "Second approved intro line"
+        required: true
+        type: string
+      INTRO_03:
+        description: "Third approved intro line"
+        required: true
+        type: string
+      BENEFICIO_01:
+        description: "First approved benefit line"
+        required: true
+        type: string
+      BENEFICIO_02:
+        description: "Second approved benefit line"
+        required: true
+        type: string
+      BENEFICIO_03:
+        description: "Third approved benefit line"
+        required: true
+        type: string
+      CTA_01:
+        description: "First approved CTA line"
+        required: true
+        type: string
+      CTA_02:
+        description: "Second approved CTA line"
+        required: true
+        type: string
+      CTA_03:
+        description: "Third approved CTA line"
         required: true
         type: string
 
@@ -22,7 +78,21 @@ jobs:
       - name: Render commercial matrix HTML
         id: render
         env:
-          APPROVED_MATRIX_JSON: ${{ inputs.approved_matrix_json }}
+          CLIENTE: ${{ inputs.CLIENTE }}
+          PROYECTO: ${{ inputs.PROYECTO }}
+          FECHA: ${{ inputs.FECHA }}
+          RESUMEN_CORTO: ${{ inputs.RESUMEN_CORTO }}
+          AUDIENCIA: ${{ inputs.AUDIENCIA }}
+          EDAD_SUGERIDA: ${{ inputs.EDAD_SUGERIDA }}
+          INTRO_01: ${{ inputs.INTRO_01 }}
+          INTRO_02: ${{ inputs.INTRO_02 }}
+          INTRO_03: ${{ inputs.INTRO_03 }}
+          BENEFICIO_01: ${{ inputs.BENEFICIO_01 }}
+          BENEFICIO_02: ${{ inputs.BENEFICIO_02 }}
+          BENEFICIO_03: ${{ inputs.BENEFICIO_03 }}
+          CTA_01: ${{ inputs.CTA_01 }}
+          CTA_02: ${{ inputs.CTA_02 }}
+          CTA_03: ${{ inputs.CTA_03 }}
         run: node "Vector - Shotlist system/scripts/publish-commercial-matrix.js"
 
       - name: Commit generated commercial matrix
