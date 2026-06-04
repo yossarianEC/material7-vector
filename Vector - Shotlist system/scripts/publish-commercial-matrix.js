@@ -22,6 +22,24 @@ const OUTPUT_ROOT = path.join(
 
 const OUTPUT_REPO_FOLDER = "Vector - Shotlist system/final_shotlists";
 
+const REQUIRED_MATRIX_FIELDS = [
+  "CLIENTE",
+  "PROYECTO",
+  "FECHA",
+  "RESUMEN_CORTO",
+  "AUDIENCIA",
+  "EDAD_SUGERIDA",
+  "INTRO_01",
+  "INTRO_02",
+  "INTRO_03",
+  "BENEFICIO_01",
+  "BENEFICIO_02",
+  "BENEFICIO_03",
+  "CTA_01",
+  "CTA_02",
+  "CTA_03"
+];
+
 // TinyCommand may strip accented vowels entirely before the JSON reaches GitHub.
 // Example: campaña -> campaa, instalación -> instalacin, más -> ms.
 // Slugs stay ASCII, but visible commercial copy should repair common Spanish words.
@@ -199,6 +217,16 @@ function repairMatrixText(data) {
   return repaired;
 }
 
+function buildMatrixFromEnvironment() {
+  const matrix = {};
+
+  for (const field of REQUIRED_MATRIX_FIELDS) {
+    matrix[field] = normalizeText(process.env[field] || "");
+  }
+
+  return matrix;
+}
+
 function slugify(value) {
   return normalizeText(value)
     .normalize("NFD")
@@ -226,18 +254,6 @@ function getEcuadorTimestamp() {
   return `${get("year")}-${get("month")}-${get("day")}-${get("hour")}${get("minute")}`;
 }
 
-function parseMatrixJson(rawJson) {
-  if (!rawJson || !normalizeText(rawJson)) {
-    fail("approved_matrix_json is missing.");
-  }
-
-  try {
-    return JSON.parse(rawJson);
-  } catch (error) {
-    fail(`approved_matrix_json is invalid JSON: ${error.message}`);
-  }
-}
-
 function setGithubOutput(name, value) {
   const outputFile = process.env.GITHUB_OUTPUT;
 
@@ -249,8 +265,7 @@ function setGithubOutput(name, value) {
   fs.appendFileSync(outputFile, `${name}<<EOF\n${value}\nEOF\n`);
 }
 
-const approvedMatrixJson = process.env.APPROVED_MATRIX_JSON;
-const matrix = repairMatrixText(parseMatrixJson(approvedMatrixJson));
+const matrix = repairMatrixText(buildMatrixFromEnvironment());
 
 const missingFields = getMissingRequiredFields(matrix);
 
