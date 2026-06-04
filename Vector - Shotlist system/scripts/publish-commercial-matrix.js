@@ -14,7 +14,13 @@ const TEMPLATE_PATH = path.join(
   "material7-commercial-matrix-template.html"
 );
 
-const OUTPUT_ROOT = path.join(process.cwd(), "shotlists");
+const OUTPUT_ROOT = path.join(
+  process.cwd(),
+  "Vector - Shotlist system",
+  "final_shotlists"
+);
+
+const OUTPUT_REPO_FOLDER = "Vector - Shotlist system/final_shotlists";
 
 // TinyCommand may strip accented vowels entirely before the JSON reaches GitHub.
 // Example: campaña -> campaa, instalación -> instalacin, más -> ms.
@@ -267,7 +273,7 @@ if (!clientSlug || !projectSlug) {
   fail("Could not create valid client/project slug.");
 }
 
-const filePath = `shotlists/${clientSlug}-${projectSlug}-${timestamp}.html`;
+const filePath = `${OUTPUT_REPO_FOLDER}/${clientSlug}-${projectSlug}-${timestamp}.html`;
 const outputPath = path.join(process.cwd(), filePath);
 
 fs.mkdirSync(OUTPUT_ROOT, { recursive: true });
