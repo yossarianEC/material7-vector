@@ -1,0 +1,56 @@
+{
+  "client_name": "Client Name",
+  "campaign_topic": "Campaign Topic",
+  "project_name": "Project Name",
+  "date": "2026-01-01",
+  "audience_label": "Audience label",
+  "audience_age_range": "25–65",
+  "summary": "Short summary of the campaign or shotlist.",
+  "recording_instructions": "",
+  "aperturas": [
+    {
+      "label": "Opening angle",
+      "text": "Opening copy goes here."
+    },
+    {
+      "label": "Opening angle",
+      "text": "Opening copy goes here."
+    },
+    {
+      "label": "Opening angle",
+      "text": "Opening copy goes here."
+    }
+  ],
+  "beneficios": [
+    {
+      "label": "Benefit angle",
+      "text": "Benefit copy goes here."
+    },
+    {
+      "label": "Benefit angle",
+      "text": "Benefit copy goes here."
+    },
+    {
+      "label": "Benefit angle",
+      "text": "Benefit copy goes here."
+    }
+  ],
+  "ctas": [
+    {
+      "label": "CTA angle",
+      "text": "CTA copy goes here."
+    },
+    {
+      "label": "CTA angle",
+      "text": "CTA copy goes here."
+    },
+    {
+      "label": "CTA angle",
+      "text": "CTA copy goes here."
+    }
+  ],
+  "visual_notes": [],
+  "audio_notes": [],
+  "internal_notes": [],
+  "client_notes": []
+}
