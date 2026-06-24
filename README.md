@@ -1,20 +1,44 @@
-# Material 7 Studio
+# Vector Studio
 
-Working repository for Material 7 studio systems, templates, publishing tools, and generated client-facing assets.
+Vector Studio is the public/static publishing layer for modules in the Vector product ecosystem.
+
+- **Domain:** `vector.material7.com`
+- **Parent company:** Material7
+- **Product ecosystem:** Vector
+- **Active module:** Commercial Shotlists
 
 ## Structure
 
-- `assets/` — shared images, icons, CSS, JS, and reusable media.
-- `templates/` — reusable design templates.
-- `data/` — structured campaign and content data.
-- `output/` — generated public files.
-- `scripts/` — build and publishing scripts.
-- `docs/` — system documentation and SOPs.
+- `commercial-shotlists/` — public Commercial Shotlists index and clean guide URLs.
+- `nano/` — Vector Nano public module placeholder.
+- `diagnostics/` — Diagnostics public module placeholder.
+- `client-systems/` — Client Systems public module placeholder.
+- `assets/` — shared public CSS, JavaScript, images, and logos.
+- `_system/` — source files and build tools organized by module.
+- `_docs/` — global Vector Studio operating and QA documentation.
 
-## Rule
+## Source rule
 
-Source files live in `templates/`, `data/`, `assets/`, and `scripts`.
+The source of truth for each module lives in `_system/[module-name]/`.
 
-Generated client-facing files live in `output`.
+Generated browser-facing files are outputs. Do not hand-edit generated module pages unless it is an emergency.
 
-Do not manually edit generated files unless it is an emergency.
+## Public rule
+
+Browser-facing modules use clean root paths such as `/commercial-shotlists/`.
+
+Legacy URLs may remain only as lightweight redirects to preserve existing links.
+
+## Commercial Shotlists build
+
+From the repository root:
+
+```bash
+python _system/commercial-shotlists/build.py
+```
+
+To convert one intake file and rebuild the public module:
+
+```bash
+python _system/commercial-shotlists/build.py intake-file-id
+```
