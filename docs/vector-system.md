@@ -1,134 +1,125 @@
 # Vector System
 
-## Purpose
+## Core identity
 
-Vector is the modular publishing and product system for Material 7 Studio.
+Vector is the master product ecosystem for Material 7 Studio.
 
-It is designed to support reusable client-facing and internal systems such as:
+Vector is not a single tool, campaign, website, template, or mini app.
 
-* interactive business tools
-* strategy diagnostics
+Vector is the parent architecture that organizes Material 7 products, product lines, modules, reusable templates, data models, renderers, shared assets, and generated client-facing experiences.
+
+```text
+Material 7 Studio
+└── Vector
+    ├── Core
+    ├── Products
+    ├── Shared Assets
+    ├── Shared Templates
+    ├── Data
+    ├── Scripts / Renderers
+    └── Generated Outputs
+```
+
+## Product doctrine
+
+Everything built inside Vector should be treated as a product or product component.
+
+Examples of Vector products or product lines:
+
+* Vector Nano
+* business diagnostics
+* client portals
 * campaign guides
 * commercial shotlists
 * landing page modules
-* client portals
 * lightweight software demos
-* reusable templates
-* generated client-facing outputs
+* internal production tools
+* generated client-facing reports
 
-Vector should be built as a modular system, not as one-off pages.
+Vector Nano is a product inside Vector. It is not the main system.
 
-## Core principle
+Commercial shotlists are a Vector product or internal production product. They are not the main system.
 
-Vector separates source, template, logic, and output.
+## Product vs module
 
-Final generated files are output, not the source of truth.
+**Product**
 
-Source of truth should live in:
+A complete user-facing or operator-facing experience with a clear purpose.
 
-* `data/vector/`
-* `templates/vector/`
-* `assets/vector/`
-* `scripts/vector/`
-* `docs/vector/`
+Examples:
 
-Generated public/client-facing files should live in:
+* Vector Nano
+* Commercial Shotlist System
+* Business Diagnostic Tool
+* Client Portal System
 
-* `output/vector/`
+**Module**
+
+A reusable technical or strategic component that supports a product.
+
+Examples:
+
+* questionnaire flow
+* scoring engine
+* HTML renderer
+* report template
+* landing page section
+* email capture block
+
+## Source/output rule
+
+Final generated files are output, not source of truth.
+
+Source of truth lives in:
+
+```text
+data/vector/
+templates/vector/
+assets/vector/
+scripts/vector/
+docs/vector/
+```
+
+Generated public/client-facing files live in:
+
+```text
+output/vector/
+```
+
+Generated output should not be manually edited unless it is an emergency.
 
 ## Folder roles
 
-`data/vector/`
-
-Stores structured content and configuration for Vector modules.
-
-`templates/vector/`
-
-Stores reusable layouts, HTML templates, and module templates.
-
-`assets/vector/`
-
-Stores reusable CSS, JavaScript, images, icons, and shared media.
-
-`scripts/vector/`
-
-Stores build scripts, renderers, generators, and publishing utilities.
-
-`docs/vector/`
-
-Stores planning notes, SOPs, doctrine, module specs, and system documentation.
-
-`output/vector/`
-
-Stores generated public files. These files should not be manually edited unless it is an emergency.
-
-## Module doctrine
-
-Each Vector module should eventually have:
-
-* a clear purpose
-* a data model
-* a template
-* reusable assets
-* a renderer or build path
-* generated output
-* documentation
-
-A module should be small enough to understand, test, and rebuild independently.
-
-## Naming convention
-
-Use lowercase kebab-case.
-
-Use clear, short names.
-
-Good examples:
-
 ```text
-commercial-shotlists
-business-diagnostics
-nano-tools
-landing-modules
-client-guides
+docs/vector/core/          → Vector doctrine, principles, system rules
+docs/vector/products/      → product specs and product-line docs
+data/vector/products/      → structured product data
+templates/vector/products/ → reusable product templates
+assets/vector/shared/      → shared Vector assets
+output/vector/products/    → generated product outputs
+scripts/vector/            → build scripts, renderers, utilities
 ```
-
-Avoid long filename monsters.
-
-Avoid mixing dates into system folders unless the file is campaign-specific output.
 
 ## Build order
 
 The correct Vector build order is:
 
 1. Vector doctrine
-2. Vector folder structure
-3. First module definition
-4. Data model for that module
-5. Template for that module
-6. Renderer/build path for that module
+2. Product architecture
+3. First product spec
+4. Product data model
+5. Product template
+6. Manual renderer/build path
 7. Generated output
 8. Automation only after the manual pipeline works
 
 ## Do-not rules
 
-Do not manually edit generated output unless it is an emergency.
-
-Do not mix legacy folders into the new structure.
-
-Do not restore the old `Vector - Shotlist system` folder.
-
-Do not restore the old `shotlists` folder.
-
-Do not create workflows before the manual pipeline works.
-
-Do not create package files unless a real script needs them.
-
-Do not create campaign output before the module structure exists.
-
-Do not build multiple modules at once.
-
-## Current status
-
-The repository is in clean scaffold mode.
-
-The next step after this document is to define the first Vector module.
+* Do not build multiple products at once.
+* Do not create workflows before the manual pipeline works.
+* Do not manually edit generated output unless it is an emergency.
+* Do not restore `Vector - Shotlist system`.
+* Do not restore `shotlists`.
+* Do not create package files unless scripts require them.
+* Do not treat Vector Nano as the parent system.
+* Do not treat commercial shotlists as the parent system.
