@@ -42,6 +42,8 @@ const outputDirectory = path.join(
 );
 const intakeBuilderPath = path.join(__dirname, "build-shotlist-from-intake.js");
 const rendererPath = path.join(__dirname, "render-commercial-shotlist.js");
+const indexBuilderPath = path.join(__dirname, "build-commercial-shotlist-index.js");
+const indexPath = path.join(outputDirectory, "index.html");
 
 function readIntake(filePath) {
   try {
@@ -79,7 +81,8 @@ function relativePath(filePath) {
 }
 
 function runScript(scriptPath, argument) {
-  const result = spawnSync(process.execPath, [scriptPath, argument], {
+  const scriptArguments = argument ? [scriptPath, argument] : [scriptPath];
+  const result = spawnSync(process.execPath, scriptArguments, {
     cwd: repositoryRoot,
     encoding: "utf8",
   });
@@ -138,5 +141,13 @@ if (!fs.existsSync(outputPath)) {
   process.exit(1);
 }
 
+runScript(indexBuilderPath);
+
+if (!fs.existsSync(indexPath)) {
+  console.error(`Index builder did not create the expected file: ${relativePath(indexPath)}`);
+  process.exit(1);
+}
+
 console.log(`Created shotlist data: ${relativePath(shotlistPath)}`);
 console.log(`Created generated HTML: ${relativePath(outputPath)}`);
+console.log(`Updated shotlist index: ${relativePath(indexPath)}`);
