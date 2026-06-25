@@ -81,7 +81,7 @@ From the repository root, run:
 node scripts/vector/products/commercial-shotlists/build-and-render-commercial-shotlist.js intake-file-id
 ```
 
-Do not include `.json`.
+Omit `.json`.
 
 Example:
 
@@ -116,7 +116,7 @@ Check:
 - CTAs are correct.
 - No unresolved template tokens are visible.
 - Internal notes are not visible in the client-facing output.
-- The page visually matches the Material 7 shotlist style.
+- The page visually matches the Vector shotlist style.
 - Print preview looks clean.
 
 ## Step 5 — Check the generated index
@@ -155,25 +155,22 @@ Push to main.
 
 After GitHub Pages updates, use:
 
-`https://studio.material7.com/output/vector/products/commercial-shotlists/file-id.html`
+`https://vector.material7.com/output/vector/products/commercial-shotlists/file-id.html`
 
 Example:
 
-`https://studio.material7.com/output/vector/products/commercial-shotlists/detail-sport-ppf-interior-2026-06-23.html`
+`https://vector.material7.com/output/vector/products/commercial-shotlists/detail-sport-ppf-interior-2026-06-23.html`
 
 The public index is:
 
-`https://studio.material7.com/output/vector/products/commercial-shotlists/`
+`https://vector.material7.com/output/vector/products/commercial-shotlists/`
 
-## Do-not rules
+## Rules
 
-- Do not manually edit generated HTML unless it is an emergency.
-- Do not use the generated HTML as the source of truth.
-- Do not edit the index manually; regenerate it through the pipeline.
-- Do not restore old legacy folders.
-- Do not create long filename monsters.
-- Do not expose internal notes in client-facing output.
-- Do not publish without QA.
+- Rebuild generated HTML from source whenever possible.
+- Use structured JSON as the source of truth.
+- Regenerate the index through the pipeline.
+- Keep generated output clean, public-facing, and free of internal notes.
 
 ## Recovery rule
 
@@ -185,5 +182,3 @@ If generated output looks wrong, fix the source:
 - renderer
 
 Then run the pipeline again.
-
-Generated output should be rebuilt, not hand-patched.
