@@ -35,62 +35,7 @@
       "text": "El PPF le ayuda a mantener su auto en perfectas condiciones y además protege su valor de reventa."
     }
   ],
-  "modifiers": [
-    {
-      "label": "Immortal Cut / Sin cuchillas",
-      "usage": "Use when showing digital cut preparation, software, plotter, or no-blade installation proof.",
-      "variations": [
-        {
-          "label": "M1A",
-          "text": "Diseñamos el corte exacto para su auto con Immortal Cut, sin pasar cuchillas sobre su pintura."
-        },
-        {
-          "label": "M1B",
-          "text": "Con Immortal Cut, cada pieza se corta a medida para su vehículo, sin usar cuchillas directamente sobre la pintura."
-        },
-        {
-          "label": "M1C",
-          "text": "El corte se prepara con precisión para su auto, cuidando su pintura desde el primer paso."
-        }
-      ]
-    },
-    {
-      "label": "Instalación panel por panel",
-      "usage": "Use when showing technicians installing PPF carefully on the vehicle.",
-      "variations": [
-        {
-          "label": "M2A",
-          "text": "Nuestros técnicos instalan el PPF cuidadosamente, panel por panel."
-        },
-        {
-          "label": "M2B",
-          "text": "Cada panel se trabaja con calma, precisión y cuidado durante la instalación."
-        },
-        {
-          "label": "M2C",
-          "text": "La instalación se realiza pieza por pieza, cuidando el acabado de cada zona."
-        }
-      ]
-    },
-    {
-      "label": "Garantía",
-      "usage": "Use when the edit needs a trust or warranty insert.",
-      "variations": [
-        {
-          "label": "M3A",
-          "text": "Todas nuestras instalaciones de PPF cuentan con 10 años de garantía."
-        },
-        {
-          "label": "M3B",
-          "text": "Su instalación de PPF queda respaldada con 10 años de garantía."
-        },
-        {
-          "label": "M3C",
-          "text": "Además, este servicio cuenta con una garantía de 10 años."
-        }
-      ]
-    }
-  ],
+  "modifiers": [],
   "ctas": [
     {
       "label": "Cotización",

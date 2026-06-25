@@ -1,8 +1,8 @@
-# Vector Studio SOP
+# Vector SOP
 
 ## Identity
 
-Material7 is the parent company. Vector is the product ecosystem. Vector Studio is the public/static GitHub Pages workshop for Vector modules at `vector.material7.com`.
+Material7 is the parent company. Vector is the product ecosystem and public/static GitHub Pages workshop for Vector modules at `vector.material7.com`.
 
 ## Source and public rules
 

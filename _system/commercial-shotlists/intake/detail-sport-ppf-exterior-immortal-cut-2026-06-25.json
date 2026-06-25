@@ -1,0 +1,107 @@
+{
+  "client_name": "Detail Sport",
+  "campaign_topic": "PPF Exterior Immortal Cut",
+  "project_name": "Campaña de instalación de PPF exterior con Immortal Cut",
+  "date": "2026-06-25",
+  "audience_label": "Hombres",
+  "audience_age_range": "25–65",
+  "summary": "Instalación profesional de PPF exterior para proteger la pintura del vehículo con corte preciso Immortal Cut e instalación cuidadosa.",
+  "recording_instructions": "Hable despacio y con pausas. Deje un segundo de silencio antes y después de cada frase para facilitar los cortes en edición.",
+  "aperturas": [
+    {
+      "label": "Pintura protegida",
+      "text": "¿Quiere proteger la pintura de su auto antes de que se desgaste?"
+    },
+    {
+      "label": "Daño diario",
+      "text": "Su auto está expuesto todos los días a piedras, rayones, marcas y desgaste."
+    },
+    {
+      "label": "Instalación correcta",
+      "text": "Cuando se trata de proteger su pintura, la instalación tiene que hacerse bien."
+    }
+  ],
+  "beneficios": [
+    {
+      "label": "Experiencia",
+      "text": "En Detail Sport, tenemos más de 10 años de experiencia instalando PPF."
+    },
+    {
+      "label": "CarPro Immortal",
+      "text": "Detail Sport representa el sistema Immortal de CarPro en Ecuador."
+    },
+    {
+      "label": "Protección transparente",
+      "text": "La capa transparente ayuda a proteger su auto sin cambiar su estilo original."
+    },
+    {
+      "label": "Garantía",
+      "text": "Todas nuestras instalaciones de PPF cuentan con 10 años de garantía."
+    }
+  ],
+  "modifiers": [
+    {
+      "label": "CarPro / Immortal Cut",
+      "usage": "Use when showing software, plotter, digital cutting, or explaining that the cut is prepared without blades on the paint.",
+      "variations": [
+        {
+          "label": "M1A",
+          "text": "Diseñamos el corte exacto para su auto con Immortal Cut, sin pasar cuchillas sobre su pintura."
+        },
+        {
+          "label": "M1B",
+          "text": "Con Immortal Cut, cada pieza se corta a medida para su vehículo, sin usar cuchillas directamente sobre la pintura."
+        },
+        {
+          "label": "M1C",
+          "text": "El corte se prepara con precisión para su auto, cuidando su pintura desde el primer paso."
+        }
+      ]
+    },
+    {
+      "label": "Instalación panel por panel",
+      "usage": "Use when showing technicians installing the PPF carefully on the vehicle.",
+      "variations": [
+        {
+          "label": "M2A",
+          "text": "Nuestros técnicos instalan el PPF cuidadosamente, panel por panel."
+        },
+        {
+          "label": "M2B",
+          "text": "Cada panel se trabaja con calma, precisión y cuidado durante la instalación."
+        },
+        {
+          "label": "M2C",
+          "text": "La instalación se realiza pieza por pieza, cuidando el acabado de cada zona."
+        }
+      ]
+    }
+  ],
+  "ctas": [
+    {
+      "label": "Revisión",
+      "text": "Escríbanos y revisamos qué protección le conviene a su vehículo."
+    },
+    {
+      "label": "Visita al local",
+      "text": "Visítenos en Detail Sport y le ayudamos con lo que necesite."
+    },
+    {
+      "label": "Información",
+      "text": "Contáctenos para más información sobre nuestro servicio de PPF."
+    }
+  ],
+  "visual_notes": [
+    "Mostrar el software o preparación de corte Immortal Cut cuando se use el modificador M1.",
+    "Mostrar instalación cuidadosa sobre el vehículo cuando se use el modificador M2.",
+    "Usar close-ups de pintura, bordes, puntos de contacto y acabado transparente.",
+    "Cerrar con beauty shot del auto terminado, logo, teléfono y ubicación."
+  ],
+  "audio_notes": [
+    "Grabar A, B, M y C como clips independientes.",
+    "Usar modificadores solo cuando el edit necesite más duración o cuando el footage muestre ese proceso.",
+    "Mantener tono natural, claro y profesional."
+  ],
+  "internal_notes": [],
+  "client_notes": []
+}

@@ -1,6 +1,6 @@
-# Vector Studio
+# Vector
 
-Vector Studio is the public/static publishing layer for modules in the Vector product ecosystem.
+Vector is the public/static publishing layer for modules in the Vector product ecosystem.
 
 - **Domain:** `vector.material7.com`
 - **Parent company:** Material7
@@ -15,7 +15,7 @@ Vector Studio is the public/static publishing layer for modules in the Vector pr
 - `client-systems/` — Client Systems public module placeholder.
 - `assets/` — shared public CSS, JavaScript, images, and logos.
 - `_system/` — source files and build tools organized by module.
-- `_docs/` — global Vector Studio operating and QA documentation.
+- `_docs/` — global Vector operating and QA documentation.
 
 ## Source rule
 

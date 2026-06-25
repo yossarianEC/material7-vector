@@ -43,74 +43,7 @@
       "label": "Valor de reventa"
     }
   ],
-  "modifiers": [
-    {
-      "id": "modifier-01",
-      "label": "Immortal Cut / Sin cuchillas",
-      "variations": [
-        {
-          "id": "modifier-01-variation-01",
-          "text": "Diseñamos el corte exacto para su auto con Immortal Cut, sin pasar cuchillas sobre su pintura.",
-          "label": "M1A"
-        },
-        {
-          "id": "modifier-01-variation-02",
-          "text": "Con Immortal Cut, cada pieza se corta a medida para su vehículo, sin usar cuchillas directamente sobre la pintura.",
-          "label": "M1B"
-        },
-        {
-          "id": "modifier-01-variation-03",
-          "text": "El corte se prepara con precisión para su auto, cuidando su pintura desde el primer paso.",
-          "label": "M1C"
-        }
-      ],
-      "usage": "Use when showing digital cut preparation, software, plotter, or no-blade installation proof."
-    },
-    {
-      "id": "modifier-02",
-      "label": "Instalación panel por panel",
-      "variations": [
-        {
-          "id": "modifier-02-variation-01",
-          "text": "Nuestros técnicos instalan el PPF cuidadosamente, panel por panel.",
-          "label": "M2A"
-        },
-        {
-          "id": "modifier-02-variation-02",
-          "text": "Cada panel se trabaja con calma, precisión y cuidado durante la instalación.",
-          "label": "M2B"
-        },
-        {
-          "id": "modifier-02-variation-03",
-          "text": "La instalación se realiza pieza por pieza, cuidando el acabado de cada zona.",
-          "label": "M2C"
-        }
-      ],
-      "usage": "Use when showing technicians installing PPF carefully on the vehicle."
-    },
-    {
-      "id": "modifier-03",
-      "label": "Garantía",
-      "variations": [
-        {
-          "id": "modifier-03-variation-01",
-          "text": "Todas nuestras instalaciones de PPF cuentan con 10 años de garantía.",
-          "label": "M3A"
-        },
-        {
-          "id": "modifier-03-variation-02",
-          "text": "Su instalación de PPF queda respaldada con 10 años de garantía.",
-          "label": "M3B"
-        },
-        {
-          "id": "modifier-03-variation-03",
-          "text": "Además, este servicio cuenta con una garantía de 10 años.",
-          "label": "M3C"
-        }
-      ],
-      "usage": "Use when the edit needs a trust or warranty insert."
-    }
-  ],
+  "modifiers": [],
   "ctas": [
     {
       "id": "cta-01",

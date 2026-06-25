@@ -1,6 +1,6 @@
 # Commercial Shotlists
 
-Commercial Shotlists is the first live Vector Studio module. It converts structured campaign intake into client-safe commercial recording guides.
+Commercial Shotlists is the first live Vector module. It converts structured campaign intake into client-safe commercial recording guides.
 
 ## Source layout
 

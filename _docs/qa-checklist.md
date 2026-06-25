@@ -1,9 +1,9 @@
-# Vector Studio QA Checklist
+# Vector QA Checklist
 
 ## Domain and branding
 
 - `vector.material7.com` loads.
-- Homepage title and header say Vector Studio.
+- Homepage title and header say Vector.
 - Material7 is described only as the parent company or logo brand.
 
 ## Public routes
