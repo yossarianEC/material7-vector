@@ -1,6 +1,6 @@
-# Material 7 Studio
+# Vector
 
-Working repository for Material 7 studio systems, templates, publishing tools, and generated client-facing assets.
+Working repository for Vector systems, templates, publishing tools, and generated client-facing assets.
 
 ## Structure
 
@@ -17,4 +17,4 @@ Source files live in `templates/`, `data/`, `assets/`, and `scripts`.
 
 Generated client-facing files live in `output`.
 
-Do not manually edit generated files unless it is an emergency.
+Generated files should be rebuilt from source whenever possible.
