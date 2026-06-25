@@ -66,12 +66,56 @@ Optional fields:
 - `audience_age_range`
 - `summary`
 - `recording_instructions`
+- `modifiers`
 - `visual_notes`
 - `audio_notes`
 - `internal_notes`
 - `client_notes`
 
 If `recording_instructions` is left empty, the builder uses the default recording instruction.
+
+## Shotlist structure
+
+Standard short build:
+
+```text
+A + B + C
+```
+
+Extended build:
+
+```text
+A + B + M + C
+```
+
+Longer build:
+
+```text
+A + B + M1 + M2 + C
+```
+
+A modifier is an optional proof insert used only when needed. Modifiers are for client-requested details, footage-specific moments, longer edits, technical proof, process proof, and warranty or guarantee inserts.
+
+Modifiers are not normal benefits. Benefits sell the reason. Modifiers prove the process.
+
+Modifier intake example:
+
+```json
+"modifiers": [
+  {
+    "label": "Immortal Cut / Sin cuchillas",
+    "usage": "Use when showing digital cut preparation, software, plotter, or no-blade installation proof.",
+    "variations": [
+      {
+        "label": "M1A",
+        "text": "Diseñamos el corte exacto para su auto con Immortal Cut, sin pasar cuchillas sobre su pintura."
+      }
+    ]
+  }
+]
+```
+
+Leave `modifiers` as an empty array or omit it when the shotlist does not need optional proof inserts. Empty modifier sections are not rendered.
 
 ## Step 3 — Run the operator pipeline
 
@@ -87,6 +131,12 @@ Example:
 
 ```bash
 node scripts/vector/products/commercial-shotlists/build-and-render-commercial-shotlist.js detail-sport-ppf-interior-2026-06-23
+```
+
+To safely rebuild an existing shotlist and overwrite generated output, pass `--force`:
+
+```bash
+node scripts/vector/products/commercial-shotlists/build-and-render-commercial-shotlist.js detail-sport-ppf-immortal-cut-2026-06-11 --force
 ```
 
 This creates or updates:

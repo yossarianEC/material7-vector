@@ -1,0 +1,69 @@
+{
+  "id": "detail-sport-ppf-exterior-2023-10-05",
+  "client": "Detail Sport",
+  "project": "Campaña Instalación de PPF",
+  "date": "2023-10-05",
+  "audience": {
+    "label": "hombres",
+    "age_range": "25-55"
+  },
+  "summary": "Mantenga la apariencia de su vehículo como nueva con el PPF, protegiendo su pintura de desgaste y aumentando su valor de reventa.",
+  "recording_instructions": "Hable despacio y con pausa. Deje un segundo de silencio antes y después de cada frase para facilitar el corte en edición.",
+  "aperturas": [
+    {
+      "id": "apertura-01",
+      "text": "¿Quiere cuidar la pintura de su vehículo antes de que se desgaste?",
+      "label": "Pregunta"
+    },
+    {
+      "id": "apertura-02",
+      "text": "El uso diario, el sol y el camino pueden afectar la pintura de su auto.",
+      "label": "Uso diario"
+    },
+    {
+      "id": "apertura-03",
+      "text": "Proteja a su auto de rayones, lluvia ácida y manchas por el sol.",
+      "label": "Protección"
+    }
+  ],
+  "beneficios": [
+    {
+      "id": "beneficio-01",
+      "text": "El PPF ayuda a proteger la pintura frente al desgaste diario, rayones y marcas.",
+      "label": "Desgaste diario"
+    },
+    {
+      "id": "beneficio-02",
+      "text": "La instalación de PPF actúa como una barrera protectora, resguardando su auto de elementos dañinos.",
+      "label": "Barrera"
+    },
+    {
+      "id": "beneficio-03",
+      "text": "El PPF le ayuda a mantener su auto en perfectas condiciones y proteger su valor de reventa.",
+      "label": "Reventa"
+    }
+  ],
+  "ctas": [
+    {
+      "id": "cta-01",
+      "text": "Escríbanos y agende una asesoría gratuita para su vehículo.",
+      "label": "Asesoría"
+    },
+    {
+      "id": "cta-02",
+      "text": "Contáctenos y solicite una cotización.",
+      "label": "Cotización"
+    },
+    {
+      "id": "cta-03",
+      "text": "Escríbanos por WhatsApp y cotice hoy PPF para su vehículo.",
+      "label": "WhatsApp"
+    }
+  ],
+  "visual_notes": [],
+  "audio_notes": [],
+  "internal_notes": [
+    "Recovered from old backup file detail-sport-campana-instalacion-de-ppf-2026-06-04-0914.html."
+  ],
+  "client_notes": []
+}

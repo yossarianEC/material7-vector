@@ -43,6 +43,7 @@
       "text": "Benefit copy goes here."
     }
   ],
+  "modifiers": [],
   "ctas": [
     {
       "id": "cta-01",

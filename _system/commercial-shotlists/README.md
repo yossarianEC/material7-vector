@@ -21,7 +21,7 @@ Generated HTML is output, not source of truth. Do not hand-edit it unless it is 
 
 1. Copy `intake/_starter-intake.json`.
 2. Rename it with lowercase kebab-case.
-3. Fill the required metadata, aperturas, beneficios, and CTAs.
+3. Fill the required metadata, aperturas, beneficios, optional modifiers, and CTAs.
 4. Run from the repository root:
 
 ```bash
@@ -29,6 +29,16 @@ python _system/commercial-shotlists/build.py intake-file-id
 ```
 
 The build creates or updates structured data, generates every public guide, refreshes the module index, and maintains old-link redirects.
+
+The standard short format is `A + B + C`. Use optional modifiers only when a longer edit needs proof inserts: `A + B + M + C` or `A + B + M1 + M2 + C`.
+
+Modifiers are for client-requested details, footage-specific moments, technical proof, process proof, and warranty or guarantee inserts. Benefits sell the reason. Modifiers prove the process.
+
+The Node operator pipeline also accepts `--force` when rebuilding existing generated output:
+
+```bash
+node scripts/vector/products/commercial-shotlists/build-and-render-commercial-shotlist.js intake-file-id --force
+```
 
 To rebuild from existing structured data only:
 
@@ -41,7 +51,7 @@ python _system/commercial-shotlists/build.py
 Before publishing:
 
 - confirm client, project, date, and audience
-- review aperturas, beneficios, and CTAs
+- review aperturas, beneficios, optional modifiers, and CTAs
 - confirm no unresolved template tokens
 - confirm internal notes are not visible
 - check desktop, mobile, and print preview

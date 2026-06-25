@@ -54,6 +54,11 @@ def render_values(block: str, values: dict[str, object]) -> str:
     return pattern.sub(lambda match: escape_html(get_value(values, match.group(1))), block)
 
 
+def render_raw_values(block: str, values: dict[str, object]) -> str:
+    pattern = re.compile(r"{{{\s*([a-zA-Z0-9_.]+)\s*}}}")
+    return pattern.sub(lambda match: str(get_value(values, match.group(1))), block)
+
+
 def render_conditionals(template: str, data: dict[str, object]) -> str:
     pattern = re.compile(
         r"{{#if\s+([a-zA-Z0-9_.]+)}}([\s\S]*?){{/if}}",
@@ -91,12 +96,62 @@ def render_loops(template: str, data: dict[str, object]) -> str:
 
 
 def render_template(template: str, data: dict[str, object]) -> str:
+    data = {**data, "modifier_section_html": render_modifier_section(data.get("modifiers", []))}
     rendered = render_conditionals(template, data)
     rendered = render_loops(rendered, data)
+    rendered = render_raw_values(rendered, data)
     rendered = render_values(rendered, data)
     rendered = re.sub(r"[ \t]+$", "", rendered, flags=re.MULTILINE)
     rendered = re.sub(r"\n{3,}", "\n\n", rendered)
     return rendered
+
+
+def render_modifier_section(modifiers: object) -> str:
+    if not isinstance(modifiers, list) or not modifiers:
+        return ""
+
+    modifier_cards: list[str] = []
+    for modifier_index, modifier in enumerate(modifiers, start=1):
+        if not isinstance(modifier, dict):
+            continue
+
+        variations = modifier.get("variations", [])
+        variation_cards: list[str] = []
+        if isinstance(variations, list):
+            for variation_index, variation in enumerate(variations, start=1):
+                if not isinstance(variation, dict):
+                    continue
+                variation_cards.append(
+                    f'''
+                <article class="modifier-variation" data-number="{escape_html(variation_index)}">
+                  <p class="take-meta"><span>{escape_html(variation.get("id", ""))}</span><span>{escape_html(variation.get("label", ""))}</span></p>
+                  <p class="take-text">&quot;{escape_html(variation.get("text", ""))}&quot;</p>
+                  <p class="take-notes">{escape_html(variation.get("notes", ""))}</p>
+                </article>'''
+                )
+
+        modifier_cards.append(
+            f'''
+            <article class="modifier-card">
+              <div class="modifier-card__head">
+                <p class="take-meta"><span>{escape_html(modifier.get("id", ""))}</span></p>
+                <h3>{escape_html(modifier.get("label", ""))}</h3>
+                <p class="modifier-usage">{escape_html(modifier.get("usage", ""))}</p>
+              </div>
+              <div class="modifier-variation-list">{''.join(variation_cards)}
+              </div>
+            </article>'''
+        )
+
+    if not modifier_cards:
+        return ""
+
+    return f'''
+        <section class="section modifier-section">
+          <div class="section-header"><h2>Bloque opcional: Modificadores</h2><span class="section-kicker modifier">Modificadores opcionales</span></div>
+          <div class="modifier-list">{''.join(modifier_cards)}
+          </div>
+        </section>'''
 
 
 def load_json(path: Path) -> dict[str, object]:
@@ -159,6 +214,60 @@ def build_copy_blocks(items: object, singular: str, field: str) -> list[dict[str
     return blocks
 
 
+def build_modifiers(items: object) -> list[dict[str, object]]:
+    if items is None:
+        return []
+    if not isinstance(items, list):
+        raise ValueError("modifiers must be an array when present")
+
+    modifiers: list[dict[str, object]] = []
+    for modifier_index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            raise ValueError("Each modifier must be an object")
+
+        label = item.get("label")
+        if not isinstance(label, str) or not label.strip():
+            raise ValueError(f"Modifier {modifier_index} is missing required label")
+
+        variations = item.get("variations")
+        if not isinstance(variations, list):
+            raise ValueError(f"Modifier {modifier_index} must include variations")
+
+        modifier_variations: list[dict[str, str]] = []
+        for variation_index, variation in enumerate(variations, start=1):
+            if not isinstance(variation, dict):
+                raise ValueError(f"Modifier {modifier_index} variation {variation_index} must be an object")
+            text = variation.get("text")
+            if not isinstance(text, str) or not text.strip():
+                continue
+            built_variation = {
+                "id": f"modifier-{modifier_index:02d}-variation-{len(modifier_variations) + 1:02d}",
+                "text": text.strip(),
+            }
+            variation_label = variation.get("label")
+            variation_notes = variation.get("notes")
+            if isinstance(variation_label, str) and variation_label.strip():
+                built_variation["label"] = variation_label.strip()
+            if isinstance(variation_notes, str) and variation_notes.strip():
+                built_variation["notes"] = variation_notes.strip()
+            modifier_variations.append(built_variation)
+
+        if not modifier_variations:
+            raise ValueError(f"Modifier {modifier_index} must include at least one variation with text")
+
+        modifier = {
+            "id": f"modifier-{modifier_index:02d}",
+            "label": label.strip(),
+            "variations": modifier_variations,
+        }
+        usage = item.get("usage")
+        if isinstance(usage, str) and usage.strip():
+            modifier["usage"] = usage.strip()
+        modifiers.append(modifier)
+
+    return modifiers
+
+
 def build_from_intake(intake_id: str) -> Path:
     if not re.fullmatch(r"_?[a-z0-9]+(?:-[a-z0-9]+)*", intake_id):
         raise ValueError("Intake id must use lowercase kebab-case without .json")
@@ -188,6 +297,7 @@ def build_from_intake(intake_id: str) -> Path:
         ),
         "aperturas": build_copy_blocks(intake.get("aperturas"), "apertura", "aperturas"),
         "beneficios": build_copy_blocks(intake.get("beneficios"), "beneficio", "beneficios"),
+        "modifiers": build_modifiers(intake.get("modifiers")),
         "ctas": build_copy_blocks(intake.get("ctas"), "cta", "ctas"),
         "visual_notes": read_notes(intake, "visual_notes"),
         "audio_notes": read_notes(intake, "audio_notes"),
@@ -306,12 +416,13 @@ def build_public() -> None:
 
 
 def main() -> int:
-    if len(sys.argv) > 2:
-        print("Usage: python _system/commercial-shotlists/build.py [intake-id]", file=sys.stderr)
+    args = [arg for arg in sys.argv[1:] if arg != "--force"]
+    if len(args) > 1:
+        print("Usage: python _system/commercial-shotlists/build.py [intake-id] [--force]", file=sys.stderr)
         return 1
     try:
-        if len(sys.argv) == 2:
-            build_from_intake(sys.argv[1])
+        if len(args) == 1:
+            build_from_intake(args[0])
         build_public()
     except (OSError, ValueError) as error:
         print(f"Build failed: {error}", file=sys.stderr)
