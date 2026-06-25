@@ -2,7 +2,7 @@
 
 ## Core idea
 
-Vector is the master product ecosystem for Material 7.
+Vector is the master product ecosystem for Material7.
 
 Vector is the parent architecture. Everything else is a product, product line, module, shared component, or generated output inside Vector.
 
@@ -13,7 +13,7 @@ Vector should be treated like an operating ecosystem, not like a single app.
 Use this hierarchy:
 
 ```text
-Material 7 Studio
+Material7
 └── Vector
     ├── Core
     ├── Product Lines
@@ -162,7 +162,7 @@ Output belongs in:
 output/vector/
 ```
 
-Generated output should not be manually edited unless it is an emergency.
+Generated output should be rebuilt from source whenever possible.
 
 ## Build sequence for any Vector product
 
@@ -177,7 +177,7 @@ Every Vector product should be built in this order:
 7. QA checklist
 8. Automation
 
-Do not automate before the manual pipeline works.
+Automate only after the manual pipeline works.
 
 ## Current priority
 
