@@ -124,7 +124,6 @@ def render_modifier_section(modifiers: object) -> str:
                 variation_cards.append(
                     f'''
                 <article class="toma-extra-linea">
-                  <p class="toma-extra-linea__meta"><span>{escape_html(variation.get("id", ""))}</span><span>{escape_html(variation.get("label", ""))}</span></p>
                   <p class="toma-extra-linea__texto">&quot;{escape_html(variation.get("text", ""))}&quot;</p>
                   <p class="take-notes">{escape_html(variation.get("notes", ""))}</p>
                 </article>'''
@@ -134,7 +133,6 @@ def render_modifier_section(modifiers: object) -> str:
             f'''
             <article class="toma-extra-card">
               <div class="toma-extra-card__head">
-                <p class="take-meta"><span>{escape_html(modifier.get("id", ""))}</span></p>
                 <h3>{escape_html(modifier.get("label", ""))}</h3>
               </div>
               <div class="toma-extra-lista">{''.join(variation_cards)}
