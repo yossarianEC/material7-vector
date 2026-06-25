@@ -50,21 +50,21 @@
   ],
   "modifiers": [
     {
-      "id": "modifier-01",
+      "id": "modificador-01",
       "label": "CarPro / Immortal Cut",
       "variations": [
         {
-          "id": "modifier-01-variation-01",
+          "id": "modificador-01-variacion-01",
           "text": "Diseñamos el corte exacto para su auto con Immortal Cut, sin pasar cuchillas sobre su pintura.",
           "label": "M1A"
         },
         {
-          "id": "modifier-01-variation-02",
+          "id": "modificador-01-variacion-02",
           "text": "Con Immortal Cut, cada pieza se corta a medida para su vehículo, sin usar cuchillas directamente sobre la pintura.",
           "label": "M1B"
         },
         {
-          "id": "modifier-01-variation-03",
+          "id": "modificador-01-variacion-03",
           "text": "El corte se prepara con precisión para su auto, cuidando su pintura desde el primer paso.",
           "label": "M1C"
         }
@@ -72,21 +72,21 @@
       "usage": "Use when showing software, plotter, digital cutting, or explaining that the cut is prepared without blades on the paint."
     },
     {
-      "id": "modifier-02",
+      "id": "modificador-02",
       "label": "Instalación panel por panel",
       "variations": [
         {
-          "id": "modifier-02-variation-01",
+          "id": "modificador-02-variacion-01",
           "text": "Nuestros técnicos instalan el PPF cuidadosamente, panel por panel.",
           "label": "M2A"
         },
         {
-          "id": "modifier-02-variation-02",
+          "id": "modificador-02-variacion-02",
           "text": "Cada panel se trabaja con calma, precisión y cuidado durante la instalación.",
           "label": "M2B"
         },
         {
-          "id": "modifier-02-variation-03",
+          "id": "modificador-02-variacion-03",
           "text": "La instalación se realiza pieza por pieza, cuidando el acabado de cada zona.",
           "label": "M2C"
         }

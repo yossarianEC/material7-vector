@@ -123,22 +123,21 @@ def render_modifier_section(modifiers: object) -> str:
                     continue
                 variation_cards.append(
                     f'''
-                <article class="modifier-line">
-                  <p class="modifier-line__meta"><span>{escape_html(variation.get("id", ""))}</span><span>{escape_html(variation.get("label", ""))}</span></p>
-                  <p class="modifier-line__text">&quot;{escape_html(variation.get("text", ""))}&quot;</p>
+                <article class="toma-extra-linea">
+                  <p class="toma-extra-linea__meta"><span>{escape_html(variation.get("id", ""))}</span><span>{escape_html(variation.get("label", ""))}</span></p>
+                  <p class="toma-extra-linea__texto">&quot;{escape_html(variation.get("text", ""))}&quot;</p>
                   <p class="take-notes">{escape_html(variation.get("notes", ""))}</p>
                 </article>'''
                 )
 
         modifier_cards.append(
             f'''
-            <article class="modifier-card">
-              <div class="modifier-card__head">
+            <article class="toma-extra-card">
+              <div class="toma-extra-card__head">
                 <p class="take-meta"><span>{escape_html(modifier.get("id", ""))}</span></p>
                 <h3>{escape_html(modifier.get("label", ""))}</h3>
-                <p class="modifier-usage">{escape_html(modifier.get("usage", ""))}</p>
               </div>
-              <div class="modifier-variation-list">{''.join(variation_cards)}
+              <div class="toma-extra-lista">{''.join(variation_cards)}
               </div>
             </article>'''
         )
@@ -147,9 +146,9 @@ def render_modifier_section(modifiers: object) -> str:
         return ""
 
     return f'''
-        <section class="section modifier-section">
-          <div class="section-header"><h2>Bloque opcional: Modificadores</h2><span class="section-kicker modifier">Extra opcional</span></div>
-          <div class="modifier-list">{''.join(modifier_cards)}
+        <section class="section tomas-extra-section">
+          <div class="section-header"><h2>Bloque opcional: Modificadores</h2><span class="section-kicker modifier">Tomas extra</span></div>
+          <div class="tomas-extra-list">{''.join(modifier_cards)}
           </div>
         </section>'''
 
@@ -241,7 +240,7 @@ def build_modifiers(items: object) -> list[dict[str, object]]:
             if not isinstance(text, str) or not text.strip():
                 continue
             built_variation = {
-                "id": f"modifier-{modifier_index:02d}-variation-{len(modifier_variations) + 1:02d}",
+                "id": f"modificador-{modifier_index:02d}-variacion-{len(modifier_variations) + 1:02d}",
                 "text": text.strip(),
             }
             variation_label = variation.get("label")
@@ -256,7 +255,7 @@ def build_modifiers(items: object) -> list[dict[str, object]]:
             raise ValueError(f"Modifier {modifier_index} must include at least one variation with text")
 
         modifier = {
-            "id": f"modifier-{modifier_index:02d}",
+            "id": f"modificador-{modifier_index:02d}",
             "label": label.strip(),
             "variations": modifier_variations,
         }
@@ -376,7 +375,7 @@ Source: _system/commercial-shotlists/data/
 -->
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Guías comerciales generadas por Vector." /><title>Commercial Shotlists · Vector</title><link rel="stylesheet" href="/assets/css/main.css" /></head><body>
 <div class="toolbar"><div class="toolbar-brand"><img class="toolbar-logo" src="/assets/logos/material7.jpg" alt="Material7" /><div><strong>Vector - Guías comerciales</strong></div></div></div>
-<main class="document"><section class="page"><div class="top-bar"></div><div class="page-inner"><div class="brand-bubble"><img src="/assets/logos/material7.jpg" alt="Material7" /></div><h1>Guías de grabación comercial</h1><p class="subtitle">Guías generadas para producción, grabación y revisión comercial.</p><div class="divider"></div><section class="guide-grid" aria-label="Guías comerciales disponibles">{''.join(cards)}</section><p class="system-note">Generated output from the Vector Commercial Shotlist System.</p></div></section></main></body></html>
+<main class="document"><section class="page"><div class="top-bar"></div><div class="page-inner"><div class="brand-bubble"><img src="/assets/logos/material7.jpg" alt="Material7" /></div><h1>Guías de grabación comercial</h1><p class="subtitle">Guías generadas para producción, grabación y revisión comercial.</p><div class="divider"></div><section class="guide-grid" aria-label="Guías comerciales disponibles">{''.join(cards)}</section><p class="system-note">Vector - Guías comerciales · 2026</p></div></section></main></body></html>
 '''
 
 
