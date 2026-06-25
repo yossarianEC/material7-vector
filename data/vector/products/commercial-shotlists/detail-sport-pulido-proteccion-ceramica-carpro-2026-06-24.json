@@ -1,0 +1,79 @@
+{
+  "id": "detail-sport-pulido-proteccion-ceramica-carpro-2026-06-24",
+  "client": "Detail Sport",
+  "project": "Campaña de pulido y protección cerámica con productos CarPro",
+  "date": "2026-06-24",
+  "audience": {
+    "label": "Hombres",
+    "age_range": "25–65"
+  },
+  "summary": "Servicio profesional de pulido y protección cerámica para recuperar brillo, mejorar reflejos y ayudar a proteger la pintura del auto.",
+  "recording_instructions": "Hable despacio y con pausas. Deje un segundo de silencio antes y después de cada frase para facilitar los cortes en edición.",
+  "aperturas": [
+    {
+      "id": "apertura-01",
+      "text": "¿Siente que su auto ya no brilla como antes?",
+      "label": "Brillo perdido"
+    },
+    {
+      "id": "apertura-02",
+      "text": "¿Ha notado que el color de su auto se ve más apagado con el tiempo?",
+      "label": "Color apagado"
+    },
+    {
+      "id": "apertura-03",
+      "text": "¿Quiere que su vehículo se vea más como nuevo?",
+      "label": "Como nuevo"
+    }
+  ],
+  "beneficios": [
+    {
+      "id": "beneficio-01",
+      "text": "Trabajamos su pintura con pulido profesional para mejorar los reflejos y reducir marcas visibles.",
+      "label": "Pulido visible"
+    },
+    {
+      "id": "beneficio-02",
+      "text": "La protección cerámica ayuda a conservar su acabado y hace que la limpieza sea más fácil en el día a día.",
+      "label": "Protección práctica"
+    },
+    {
+      "id": "beneficio-03",
+      "text": "Con productos CarPro, logramos más brillo, reflejos más limpios y una superficie mejor protegida.",
+      "label": "CarPro"
+    }
+  ],
+  "ctas": [
+    {
+      "id": "cta-01",
+      "text": "Escríbanos y revisamos qué proceso le conviene a su vehículo.",
+      "label": "Revisión"
+    },
+    {
+      "id": "cta-02",
+      "text": "Visítenos en Detail Sport y le ayudamos con lo que necesite.",
+      "label": "Visita al local"
+    },
+    {
+      "id": "cta-03",
+      "text": "Visítenos en Detail Sport y revisamos su auto antes de empezar.",
+      "label": "Asesoría simple"
+    }
+  ],
+  "visual_notes": [
+    "Hero shots del auto limpio, con reflejos visibles en la pintura.",
+    "Close-ups del color, brillo y reflejos del vehículo.",
+    "Tomas del proceso de pulido y corrección de marcas superficiales.",
+    "Producto CarPro visible en mano, en mesa de trabajo o durante preparación.",
+    "Detalles finales del acabado: paneles brillantes, reflejos limpios y superficie protegida.",
+    "Cierre con logo, teléfono, ubicación y una toma final del auto terminado."
+  ],
+  "audio_notes": [
+    "Grabar cada línea como clip independiente: A1–A3, B1–B3 y C1–C3.",
+    "Mantener tono natural, cercano y profesional; evitar voz rígida de locutor.",
+    "Dejar pausas limpias antes y después de cada frase para facilitar cortes.",
+    "Cada frase debe funcionar sola y también combinada con cualquier otra del sistema A/B/C."
+  ],
+  "internal_notes": [],
+  "client_notes": []
+}

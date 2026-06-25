@@ -1,0 +1,111 @@
+const fs = require("fs");
+const path = require("path");
+
+const repositoryRoot = path.resolve(__dirname, "..", "..", "..", "..");
+const dataDirectory = path.join(repositoryRoot, "data", "vector", "products", "commercial-shotlists");
+const outputDirectory = path.join(repositoryRoot, "output", "vector", "products", "commercial-shotlists");
+const outputPath = path.join(outputDirectory, "index.html");
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function readShotlist(fileName) {
+  const filePath = path.join(dataDirectory, fileName);
+  const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+
+  for (const field of ["id", "client", "project", "date"]) {
+    if (typeof data[field] !== "string" || data[field].trim() === "") {
+      throw new Error(`${fileName} is missing required field: ${field}`);
+    }
+  }
+
+  if (fileName !== `${data.id}.json`) {
+    throw new Error(`${fileName} does not match its shotlist id: ${data.id}`);
+  }
+
+  const generatedHtmlPath = path.join(outputDirectory, `${data.id}.html`);
+
+  if (!fs.existsSync(generatedHtmlPath)) {
+    throw new Error(`Generated HTML is missing for shotlist: ${data.id}`);
+  }
+
+  return data;
+}
+
+function renderAudience(audience) {
+  if (!audience || typeof audience !== "object") {
+    return "";
+  }
+
+  return [audience.label, audience.age_range]
+    .map((value) => (typeof value === "string" ? value.trim() : ""))
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function renderCard(shotlist) {
+  const audience = renderAudience(shotlist.audience);
+  const summary = typeof shotlist.summary === "string" ? shotlist.summary.trim() : "";
+
+  return `
+          <article class="guide-card">
+            <div class="guide-card__accent"></div>
+            <div class="guide-card__body">
+              <p class="client-name">${escapeHtml(shotlist.client)}</p>
+              <h2>${escapeHtml(shotlist.project)}</h2>
+              <div class="guide-meta">
+                <time datetime="${escapeHtml(shotlist.date)}">${escapeHtml(shotlist.date)}</time>
+                ${audience ? `<span>${escapeHtml(audience)}</span>` : ""}
+              </div>
+              ${summary ? `<p class="summary">${escapeHtml(summary)}</p>` : ""}
+              <a class="guide-link" href="${escapeHtml(shotlist.id)}.html">Abrir guía</a>
+            </div>
+          </article>`;
+}
+
+function buildIndex(shotlists) {
+  const cards = shotlists.map(renderCard).join("\n");
+
+  return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vector - Guías comerciales</title>
+  <style>
+    :root{--page-bg:#e5e5e5;--paper:#f7f8fb;--ink:#141824;--muted:#5f687c;--line:#d5dceb;--card:#fff;--green-deep:#073b2a;--green-dark:#0e8a46;--green:#18b563;--soft-green:#f4fbf7;--green-line:rgba(14,138,70,.22);--radius-lg:24px;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}html,body{margin:0;padding:0;min-height:100%;background:var(--page-bg);color:var(--ink);font-family:var(--font)}body{min-width:320px}.toolbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;padding:14px 20px;background:rgba(2,5,8,.94);color:white}.toolbar-brand{display:flex;align-items:center;gap:12px}.toolbar-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green-deep),var(--green-dark),var(--green));font-weight:950}.toolbar strong{font-size:15px;letter-spacing:.02em}.document{display:flex;flex-direction:column;align-items:center;padding:32px 16px 56px}.page{width:100%;max-width:980px;background:var(--paper);overflow:hidden;box-shadow:0 20px 50px rgba(20,24,36,.08)}.top-bar{height:14px;background:linear-gradient(90deg,var(--green-deep),var(--green-dark),var(--green))}.page-inner{padding:56px}.brand-bubble{width:60px;height:60px;margin-bottom:42px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green-deep),var(--green-dark),var(--green));color:white;font-size:26px;font-weight:950}h1{margin:0;font-size:48px;line-height:1.08;font-weight:950;letter-spacing:-.05em}.subtitle{max-width:700px;margin:16px 0 0;color:var(--muted);font-size:19px;line-height:1.5;font-weight:600}.divider{height:2px;margin:36px 0 40px;background:var(--line)}.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.guide-card{display:flex;flex-direction:column;overflow:hidden;border:2px solid var(--green-line);border-radius:var(--radius-lg);background:var(--card)}.guide-card__accent{height:8px;background:linear-gradient(90deg,var(--green-deep),var(--green-dark),var(--green))}.guide-card__body{flex:1;display:flex;flex-direction:column;padding:26px}.client-name{margin:0 0 10px;color:var(--green-dark);font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.guide-card h2{margin:0;font-size:25px;line-height:1.15;font-weight:900;letter-spacing:-.03em}.guide-meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.guide-meta time,.guide-meta span{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:var(--soft-green);color:var(--green-deep);font-size:12px;font-weight:850}.summary{margin:0 0 24px;color:var(--muted);font-size:16px;line-height:1.5;font-weight:600}.guide-link{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 17px;border-radius:999px;background:linear-gradient(135deg,var(--green-deep),var(--green-dark),var(--green));color:#fff;font-size:13px;font-weight:900;text-decoration:none}.system-note{margin:40px 0 0;padding-top:22px;border-top:2px solid var(--line);color:var(--muted);font-size:14px;font-weight:700;text-align:right}@media(max-width:760px){.document{padding:18px 10px 42px}.page-inner{padding:40px 24px}.brand-bubble{margin-bottom:34px}h1{font-size:38px}.subtitle{font-size:17px}.guide-grid{grid-template-columns:1fr}.system-note{text-align:left}}
+  </style>
+</head>
+<body>
+  <div class="toolbar"><div class="toolbar-brand"><div class="toolbar-mark">V</div><strong>Vector - Guías comerciales</strong></div></div>
+  <main class="document"><section class="page"><div class="top-bar"></div><div class="page-inner"><div class="brand-bubble">V</div><h1>Guías de grabación comercial</h1><p class="subtitle">Guías generadas para producción, grabación y revisión comercial.</p><div class="divider"></div><section class="guide-grid" aria-label="Guías comerciales disponibles">${cards}
+        </section><p class="system-note">Generated output from the Vector Commercial Shotlist System.</p></div></section></main>
+</body>
+</html>
+`;
+}
+
+try {
+  const fileNames = fs
+    .readdirSync(dataDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+    .map((entry) => entry.name)
+    .filter((fileName) => !fileName.startsWith("_"))
+    .filter((fileName) => fileName !== "commercial-shotlist.schema.json")
+    .filter((fileName) => fileName !== "example-commercial-shotlist.json");
+
+  const shotlists = fileNames.map(readShotlist).sort((a, b) => b.date.localeCompare(a.date));
+
+  fs.mkdirSync(outputDirectory, { recursive: true });
+  fs.writeFileSync(outputPath, buildIndex(shotlists), "utf8");
+  console.log(`Created commercial shotlist index: ${path.relative(repositoryRoot, outputPath).replaceAll("\\", "/")}`);
+} catch (error) {
+  console.error(`Unable to build commercial shotlist index: ${error.message}`);
+  process.exit(1);
+}
