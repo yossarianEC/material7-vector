@@ -2,14 +2,14 @@
 
 ## Core identity
 
-Vector is the master product ecosystem for Material 7 Studio.
+Vector is the master product ecosystem for Material7.
 
 Vector is not a single tool, campaign, website, template, or mini app.
 
-Vector is the parent architecture that organizes Material 7 products, product lines, modules, reusable templates, data models, renderers, shared assets, and generated client-facing experiences.
+Vector is the parent architecture that organizes Material7 products, product lines, modules, reusable templates, data models, renderers, shared assets, and generated client-facing experiences.
 
 ```text
-Material 7 Studio
+Material7
 └── Vector
     ├── Core
     ├── Products
@@ -86,7 +86,7 @@ Generated public/client-facing files live in:
 output/vector/
 ```
 
-Generated output should not be manually edited unless it is an emergency.
+Generated output should be rebuilt from source whenever possible.
 
 ## Folder roles
 
@@ -113,13 +113,10 @@ The correct Vector build order is:
 7. Generated output
 8. Automation only after the manual pipeline works
 
-## Do-not rules
+## Rules
 
-* Do not build multiple products at once.
-* Do not create workflows before the manual pipeline works.
-* Do not manually edit generated output unless it is an emergency.
-* Do not restore `Vector - Shotlist system`.
-* Do not restore `shotlists`.
-* Do not create package files unless scripts require them.
-* Do not treat Vector Nano as the parent system.
-* Do not treat commercial shotlists as the parent system.
+* Build one product at a time.
+* Build the manual pipeline before automation.
+* Rebuild generated output from source whenever possible.
+* Keep `Vector Nano` as a product, not the parent system.
+* Keep commercial shotlists as a product, not the parent system.
