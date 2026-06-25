@@ -4,7 +4,7 @@
 
 This document defines the first product-line map for Vector.
 
-Vector is the master product ecosystem for Material 7 Studio.
+Vector is the master product ecosystem for Material7.
 
 Product lines are the major families of products that live inside Vector.
 
@@ -13,7 +13,7 @@ A product line can contain many individual products, modules, templates, data mo
 ## Core hierarchy
 
 ```text
-Material 7 Studio
+Material7
 └── Vector
     ├── Core
     ├── Product Lines
@@ -104,7 +104,7 @@ Examples:
 
 ## Product line: Vector Operator Tools
 
-Vector Operator Tools are internal tools for Material 7 operators.
+Vector Operator Tools are internal tools for Material7 operators.
 
 They help build, manage, review, publish, or improve client work.
 
@@ -143,19 +143,13 @@ Each individual product should eventually define:
 * QA rules
 * publishing path
 
-## Do-not rules
+## Rules
 
-Do not build multiple product lines at once.
-
-Do not treat Vector Nano as the parent system.
-
-Do not treat commercial shotlists as the parent system.
-
-Do not create generated output before the product spec exists.
-
-Do not automate before the manual product pipeline works.
-
-Do not restore old legacy folders.
+* Build one product line at a time.
+* Keep Vector Nano as a product line, not the parent system.
+* Keep commercial shotlists as a product, not the parent system.
+* Define the product spec before generating output.
+* Automate only after the manual product pipeline works.
 
 ## Current status
 
